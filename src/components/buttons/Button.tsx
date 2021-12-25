@@ -33,10 +33,10 @@ export default function Button({
       disabled={disabled}
       className={clsx(
         className,
-        'inline-flex items-center px-4 py-2 font-semibold rounded',
+        'font-semibold items-center px-4 py-2 rounded',
         'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
         'shadow-sm',
-        'transition-colors duration-75',
+        'duration-75 transition-colors',
         [
           variant === 'primary' && [
             'bg-primary-400 text-white',
@@ -79,7 +79,7 @@ export default function Button({
       {isLoading && (
         <div
           className={clsx(
-            'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+            '-translate-x-1/2 -translate-y-1/2 absolute left-1/2 top-1/2',
             {
               'text-white': variant === 'dark' || variant === 'primary',
               'text-black': variant === 'light',

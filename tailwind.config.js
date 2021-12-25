@@ -12,6 +12,7 @@ function withOpacity(variableName) {
 
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
+  important: true,
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
@@ -51,6 +52,10 @@ module.exports = {
         flicker: 'flicker 3s linear infinite',
       },
     },
+  },
+  i18n: {
+    locales: ['en-US'],
+    defaultLocale: 'en-US',
   },
   plugins: [require('@tailwindcss/forms')],
 };

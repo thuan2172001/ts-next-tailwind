@@ -4,6 +4,13 @@
     "prefix": "ir",
     "body": ["import * as React from 'react';"]
   },
+  "import React": {
+    "prefix": "rt",
+    "body": [
+      "import { useRouter } from 'next/router';\n",
+      "const router = useRouter();"
+    ]
+  },
   "React.useState": {
     "prefix": "us",
     "body": [

@@ -1,10 +1,17 @@
 import { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
+import { Provider } from 'react-redux';
 
 import '@/styles/globals.css';
 
+import store from '@/reducer/store';
+
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
 export default appWithTranslation(MyApp);
