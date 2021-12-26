@@ -10,3 +10,7 @@ export type PopUpItemsProps = {
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
 };
+
+export type CarouselItem = {
+  src: string;
+};

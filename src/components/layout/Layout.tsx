@@ -15,6 +15,7 @@ export default function Layout({
   return (
     <>
       {!hiddenHeader && <Header />}
+      <div style={{ marginTop: `${!hiddenHeader ? '0' : '51.95px'}` }}></div>
       {children}
       {!hiddenFooter && <Footer />}
     </>

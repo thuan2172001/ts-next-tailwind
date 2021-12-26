@@ -9,10 +9,7 @@ module.exports = {
 
   reactStrictMode: true,
 
-  // Uncoment to add domain whitelist
-  // images: {
-  //   domains: [
-  //     'res.cloudinary.com',
-  //   ],
-  // },
+  images: {
+    domains: ['nftjapan-backup.s3.ap-northeast-1.amazonaws.com'],
+  },
 };

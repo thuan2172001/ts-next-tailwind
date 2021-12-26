@@ -16,19 +16,17 @@ export const PopOverButton = ({
 }) => {
   return (
     <Popover className='relative'>
-      {({ open }) => (
+      {() => (
         <>
           <Popover.Button
             className={clsx(
-              open ? 'text-gray-900' : 'text-gray-500',
-              'bg-white font-medium group inline-flex items-center rounded-md text-base hover:text-gray-900'
+              'group inline-flex items-center rounded-md text-base text-dark hover:text-gray-900'
             )}
           >
             <span>{title}</span>
             <ChevronDownIcon
               className={clsx(
-                open ? 'text-gray-600' : 'text-gray-400',
-                'h-5 ml-2 w-5 group-hover:text-gray-500'
+                'h-5 ml-2 text-dark w-5 group-hover:text-gray-500'
               )}
               aria-hidden='true'
             />
@@ -57,9 +55,7 @@ export const PopOverButton = ({
                         aria-hidden='true'
                       />
                       <div className='ml-4'>
-                        <p className='font-medium text-base text-gray-900'>
-                          {item.name}
-                        </p>
+                        <p className='text-base text-gray-900'>{item.name}</p>
                         <p className='mt-1 text-gray-500 text-sm'>
                           {item.description}
                         </p>
@@ -72,7 +68,7 @@ export const PopOverButton = ({
                     <div key={item.name} className='flow-root'>
                       <a
                         href={item.href}
-                        className='-m-3 flex font-medium items-center p-3 rounded-md text-base text-gray-900 hover:bg-gray-100'
+                        className='-m-3 flex items-center p-3 rounded-md text-base text-gray-900 hover:bg-gray-100'
                       >
                         <item.icon
                           className='flex-shrink-0 h-6 text-gray-400 w-6'

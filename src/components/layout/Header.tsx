@@ -109,21 +109,25 @@ export default function Header() {
     router.push('/signin');
   };
   return (
-    <Popover className='bg-white relative sticky top-0'>
+    <Popover className='bg-primary relative sticky top-0 z-50'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
-        <div className='border-b-2 border-gray-100 flex items-center justify-between py-6 md:justify-start md:space-x-10'>
+        <div className='border-gray-100 flex items-center justify-between py-1 md:justify-start md:space-x-10'>
           <div className='flex justify-start lg:flex-1 lg:w-0'>
-            <a href='/.'>
+            <span
+              className='cursor-pointer flex'
+              onClick={() => router.push('/')}
+            >
               <span className='sr-only'>Workflow</span>
               <img
                 className='h-8 w-auto sm:h-10'
                 src='/images/logo.svg'
                 alt=''
               />
-            </a>
+              <span style={{ alignSelf: 'center' }}>Hahaha</span>
+            </span>
           </div>
           <div className='-mr-2 -my-2 md:hidden'>
-            <Popover.Button className='bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-inset'>
+            <Popover.Button className='inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-inset'>
               <span className='sr-only'>Open menu</span>
               <MenuIcon className='h-6 w-6' aria-hidden='true' />
             </Popover.Button>
@@ -136,13 +140,13 @@ export default function Header() {
             />
             <a
               href='#'
-              className='font-medium text-base text-gray-500 hover:text-gray-900'
+              className='className=text-base text-dark hover:text-gray-900'
             >
               Pricing
             </a>
             <a
               href='#'
-              className='font-medium text-base text-gray-500 hover:text-gray-900'
+              className='className=text-base text-dark hover:text-gray-900'
             >
               Docs
             </a>
@@ -156,13 +160,13 @@ export default function Header() {
             <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
               <UnstyledLink
                 href='/signin'
-                className='font-medium text-base text-gray-500 whitespace-nowrap hover:text-gray-900'
+                className='className=text-base text-dark whitespace-nowrap hover:text-gray-900'
               >
                 Sign in
               </UnstyledLink>
               <UnstyledLink
                 href='/signup'
-                className='bg-indigo-600 border border-transparent font-medium inline-flex items-center justify-center ml-8 px-4 py-2 rounded-md shadow-sm text-base text-white whitespace-nowrap hover:bg-indigo-700'
+                className='border border-transparent className=inline-flex items-center justify-center ml-8 px-4 py-2 rounded-md shadow-sm text-base text-dark whitespace-nowrap'
               >
                 Sign up
               </UnstyledLink>
@@ -171,7 +175,7 @@ export default function Header() {
             <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
               <Button
                 onClick={(e) => handleLogout(e)}
-                className='bg-indigo-600 border border-transparent font-medium rounded-md shadow-sm text-base text-white hover:bg-indigo-700'
+                className='border border-transparent className=rounded-md shadow-sm text-base text-dark'
               >
                 Logout
               </Button>
@@ -196,13 +200,17 @@ export default function Header() {
           <div className='bg-white divide-gray-50 divide-y-2 ring-1 ring-black ring-opacity-5 rounded-lg shadow-lg'>
             <div className='pb-6 pt-5 px-5'>
               <div className='flex items-center justify-between'>
-                <div>
+                <span
+                  className='cursor-pointer flex'
+                  onClick={() => router.push('/')}
+                >
                   <img
                     className='h-8 w-auto'
                     src='/images/logo.svg'
                     alt='Workflow'
                   />
-                </div>
+                  <span style={{ alignSelf: 'center' }}>Hahaha</span>
+                </span>
                 <div className='-mr-2'>
                   <Popover.Button className='bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-inset'>
                     <span className='sr-only'>Close menu</span>
@@ -222,7 +230,7 @@ export default function Header() {
                         className='flex-shrink-0 h-6 text-indigo-600 w-6'
                         aria-hidden='true'
                       />
-                      <span className='font-medium ml-3 text-base text-gray-900'>
+                      <span className='className=ml-3 text-base text-gray-900'>
                         {item.name}
                       </span>
                     </a>
@@ -234,14 +242,14 @@ export default function Header() {
               <div className='gap-x-8 gap-y-4 grid grid-cols-2'>
                 <a
                   href='#'
-                  className='font-medium text-base text-gray-900 hover:text-gray-700'
+                  className='className=text-base text-gray-900 hover:text-gray-700'
                 >
                   Pricing
                 </a>
 
                 <a
                   href='#'
-                  className='font-medium text-base text-gray-900 hover:text-gray-700'
+                  className='className=text-base text-gray-900 hover:text-gray-700'
                 >
                   Docs
                 </a>
@@ -249,7 +257,7 @@ export default function Header() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className='font-medium text-base text-gray-900 hover:text-gray-700'
+                    className='className=text-base text-gray-900 hover:text-gray-700'
                   >
                     {item.name}
                   </a>
@@ -259,11 +267,11 @@ export default function Header() {
                 <div>
                   <a
                     href='#'
-                    className='bg-indigo-600 border border-transparent flex font-medium items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
+                    className='bg-indigo-600 border border-transparent className=items-center flex justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
                   >
                     Sign up
                   </a>
-                  <p className='font-medium mt-6 text-base text-center text-gray-500'>
+                  <p className='className=mt-6 text-base text-center text-gray-500'>
                     Existing customer?
                     <a
                       href='#'
@@ -277,7 +285,7 @@ export default function Header() {
                 <div>
                   <span
                     onClick={(e) => handleLogout(e)}
-                    className='bg-indigo-600 border border-transparent flex font-medium items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
+                    className='bg-indigo-600 border border-transparent className=items-center flex justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
                   >
                     Logout
                   </span>

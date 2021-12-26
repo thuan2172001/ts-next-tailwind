@@ -51,7 +51,7 @@ export default function _() {
             <footer className='absolute bottom-2 text-gray-700'>
               © {new Date().getFullYear()} By{' '}
               <CustomLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-                Theodorus Clarence
+                thuan2172001
               </CustomLink>
             </footer>
           </div>

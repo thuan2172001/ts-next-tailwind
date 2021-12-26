@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import 'antd/dist/antd.css';
 import '@/styles/globals.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import store from '@/reducer/store';
 
