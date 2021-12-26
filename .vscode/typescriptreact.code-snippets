@@ -98,11 +98,13 @@
   "Get Static Props": {
     "prefix": "gsp",
     "body": [
-      "export const getStaticProps: GetStaticProps = async (context) => {",
+      "export const getStaticProps: GetStaticProps = async ({ locale }) => {",
       "  return {",
-      "    props: {}",
+      "    props: {",
+      "      ...(await serverSideTranslations(locale || 'en', ['common', 'footer'])),",
+      "    },",
       "  };",
-      "}"
+      "};"
     ]
   },
   "Get Static Paths": {
