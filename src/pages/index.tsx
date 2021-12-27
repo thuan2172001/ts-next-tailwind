@@ -4,7 +4,12 @@ import * as React from 'react';
 
 import Carousel from '@/components/Carousel';
 import Layout from '@/components/layout/Layout';
+import Product from '@/components/Product';
 import Seo from '@/components/Seo';
+
+import { ProductProps } from '@/config/interface';
+
+import { items, leftItem, products, subHeader } from '../config/mockdata';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
@@ -13,74 +18,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     },
   };
 };
-
-const items = [
-  {
-    src: 'https://www.wallpaperup.com/uploads/wallpapers/2014/01/12/225293/cd89bd1f8168a20c4d6284036a00a45b-1400.jpg',
-  },
-  {
-    src: 'https://www.wallpaperup.com/uploads/wallpapers/2013/04/09/73143/d2c0f4c5943c94fccdad2866782ded2f-1400.jpg',
-  },
-  {
-    src: 'https://www.wallpaperup.com/uploads/wallpapers/2013/12/16/197406/54df26048323f74b219da0dca522e1cb-1400.jpg',
-  },
-  {
-    src: 'https://www.wallpaperup.com/uploads/wallpapers/2013/12/16/197422/9a9368fc2861cc8318013ceaf78c4f5e-1000.jpg',
-  },
-  {
-    src: 'https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  },
-  {
-    src: 'https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?cs=srgb&dl=pexels-frans-van-heerden-624015.jpg&fm=jpg',
-  },
-  {
-    src: 'https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?cs=srgb&dl=pexels-aleksandar-pasaric-325185.jpg&fm=jpg',
-  },
-  { src: 'https://images6.alphacoders.com/310/310221.jpg' },
-  { src: 'https://images8.alphacoders.com/957/957090.jpg' },
-];
-
-const leftItem = [
-  {
-    src: 'https://salt.tikicdn.com/cache/w400/ts/banner/22/69/6d/ff9607228a45d54cda97ca5488e716b6.png.webp',
-  },
-];
-
-const subHeader = [
-  {
-    title: 'Thịt',
-  },
-  {
-    title: 'Rau củ quả',
-  },
-  {
-    title: 'Sách',
-  },
-  {
-    title: 'Quần áo',
-  },
-  {
-    title: 'Mỹ phẩm',
-  },
-  {
-    title: 'Voucher',
-  },
-  {
-    title: 'Thẻ cào',
-  },
-  {
-    title: 'Ebook',
-  },
-  {
-    title: 'Ngoại văn',
-  },
-  {
-    title: 'Sticker',
-  },
-  {
-    title: 'Đồ ăn nhanh',
-  },
-];
 
 export default function HomePage() {
   return (
@@ -98,10 +35,23 @@ export default function HomePage() {
       </div>
       <Seo templateTitle='Home' />
       <main className='bg-gray-100'>
-        <section className='bg-white h-screen layout'>
+        <section className='bg-white layout'>
           <div className='gap-4 grid grid-flow-col h-min'>
             <Carousel className='col-span-5' items={items} />
             <Carousel className='col-span-3' items={leftItem} />
+          </div>
+          <div>
+            <div className='ml-4 mt-4'>Gợi ý hôm nay</div>
+            <div className='bg-white'>
+              <div className='max-w-2xl mx-auto px-4 py-4 sm:pb-24 sm:px-6 lg:max-w-7xl lg:px-8'>
+                <h2 className='sr-only'>Products</h2>
+                <div className='gap-x-6 gap-y-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 xl:grid-cols-4'>
+                  {products.map((product: ProductProps) => (
+                    <Product key={product.id} product={product} />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

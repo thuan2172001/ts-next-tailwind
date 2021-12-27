@@ -26,18 +26,11 @@ export default function LoginPage() {
       <Seo templateTitle='Login' />
       <main>
         <section className='absolute h-full w-full'>
-          <div
-            className='absolute bg-gray-900 h-full top-0 w-full'
-            style={{
-              backgroundImage: '/images/logo.svg',
-              backgroundSize: '100%',
-              backgroundRepeat: 'no-repeat',
-            }}
-          ></div>
+          <div className='absolute background-image bg-gray-900 h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
               <div className='px-4 w-full lg:w-4/12'>
-                <div className='bg-gray-300 border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
+                <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
                   <div className='mb-0 px-6 py-6 rounded-t'>
                     <div className='mb-3 text-center'>
                       <h6 className='font-bold text-gray-600 text-sm'>

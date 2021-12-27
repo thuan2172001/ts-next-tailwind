@@ -16,3 +16,12 @@ export type PopUpItemsProps = {
 export type CarouselItem = {
   src: string;
 };
+
+export type ProductProps = {
+  imageSrc?: string;
+  imageAlt?: string;
+  id?: string | number;
+  href?: string;
+  name?: string;
+  price?: number | string;
+};

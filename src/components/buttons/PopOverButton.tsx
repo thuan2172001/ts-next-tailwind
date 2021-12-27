@@ -26,17 +26,12 @@ export const PopOverButton = ({
         <>
           <Popover.Button
             className={clsx(
-              'group inline-flex items-center rounded-md text-base text-dark hover:text-gray-900'
+              'group inline-flex items-center rounded-md text-base'
             )}
           >
             {title}
             {showDropIcon && (
-              <ChevronDownIcon
-                className={clsx(
-                  'h-5 ml-2 text-dark w-5 group-hover:text-gray-500'
-                )}
-                aria-hidden='true'
-              />
+              <ChevronDownIcon className={clsx('h-5 w-5')} aria-hidden='true' />
             )}
           </Popover.Button>
 
@@ -52,8 +47,10 @@ export const PopOverButton = ({
             <Popover.Panel
               style={{ left: `${size === 'sm' && '-215px'}` }}
               className={clsx(
-                size === 'sm' ? '' : 'max-w-md w-screen',
-                '-ml-4 absolute mt-3 px-2 transform z-10 sm:px-0 lg:-translate-x-1/2 lg:left-1/2 lg:ml-0'
+                size === 'sm'
+                  ? ''
+                  : 'lg:-translate-x-1/2 lg:left-1/2 lg:ml-0 max-w-md w-screen',
+                '-ml-4 absolute mt-3 px-2 transform z-10 sm:px-0'
               )}
             >
               <div className='overflow-hidden ring-1 ring-black ring-opacity-5 rounded-lg shadow-lg'>
@@ -77,11 +74,11 @@ export const PopOverButton = ({
                     </a>
                   ))}
                 </div>
-                <div className='bg-gray-50 px-5 py-5 space-y-6 sm:flex sm:px-8 sm:space-x-10 sm:space-y-0'>
+                <div className='bg-gray-50 grid grid-cols-2 px-5 py-5 space-y-6 sm:px-8 sm:space-x-10 sm:space-y-0'>
                   {callsToAction.map((item) => (
                     <div
                       key={item.name}
-                      className='flow-root'
+                      className='col-auto flow-root'
                       onClick={(e) => item.onClick && item?.onClick(e)}
                     >
                       <a

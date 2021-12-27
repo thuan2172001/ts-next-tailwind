@@ -110,6 +110,10 @@
   ); */
 }
 
+.background-image {
+  background: url('/images/logo.svg');
+}
+
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#33333300, #33333300),

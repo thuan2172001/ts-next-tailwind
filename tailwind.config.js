@@ -57,5 +57,8 @@ module.exports = {
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };

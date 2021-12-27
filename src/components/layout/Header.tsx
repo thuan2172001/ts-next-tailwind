@@ -4,21 +4,21 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react';
 import {
+  BellIcon,
   BookmarkAltIcon,
   CalendarIcon,
   ChartBarIcon,
   CursorClickIcon,
+  LogoutIcon,
   MenuIcon,
-  PhoneIcon,
-  PlayIcon,
   RefreshIcon,
   ShieldCheckIcon,
+  ShoppingCartIcon,
   SupportIcon,
   UserCircleIcon,
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { LogoutIcon } from '@heroicons/react/solid';
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -62,10 +62,10 @@ const categories: PopUpItemsProps[] = [
     icon: RefreshIcon,
   },
 ];
-const callsToAction: PopUpItemsProps[] = [
-  { name: 'Watch Demo', onClick: () => {}, icon: PlayIcon },
-  { name: 'Contact Sales', onClick: () => {}, icon: PhoneIcon },
-];
+// const callsToAction: PopUpItemsProps[] = [
+//   { name: 'Watch Demo', onClick: () => { }, icon: PlayIcon },
+//   { name: 'Contact Sales', onClick: () => { }, icon: PhoneIcon },
+// ];
 
 const resources: PopUpItemsProps[] = [
   {
@@ -98,6 +98,12 @@ const resources: PopUpItemsProps[] = [
 ];
 const account: PopUpItemsProps[] = [
   {
+    name: 'Notification',
+    description: 'Check your notification here.',
+    href: '#',
+    icon: BellIcon,
+  },
+  {
     name: 'Account management',
     description: 'Edit your information.',
     href: '#',
@@ -121,14 +127,14 @@ export default function Header() {
     router.push('/signin');
   };
   const accountAction: PopUpItemsProps[] = [
-    { name: 'Help', onClick: () => {}, icon: SupportIcon },
+    { name: 'Help Center', onClick: () => {}, icon: SupportIcon },
     { name: 'Logout', onClick: handleLogout, icon: LogoutIcon },
   ];
   return (
     <Popover className='bg-primary relative sticky top-0 z-50'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
-        <div className='border-gray-100 flex items-center justify-between py-1 md:justify-start md:space-x-10'>
-          <div className='flex justify-start'>
+        <div className='border-gray-100 flex items-center justify-between py-1 md:space-x-10'>
+          <div className='flex'>
             <span
               className='cursor-pointer flex'
               onClick={() => router.push('/')}
@@ -146,7 +152,7 @@ export default function Header() {
                   color: 'white',
                 }}
               >
-                MAGAZINE
+                Mazada
               </span>
             </span>
           </div>
@@ -156,60 +162,34 @@ export default function Header() {
               <MenuIcon className='h-6 w-6' aria-hidden='true' />
             </Popover.Button>
           </div>
-          <Popover.Group
-            as='nav'
-            className='hidden md:flex md:space-x-1 lg:space-x-10'
-          >
-            <PopOverButton
-              items={categories}
-              title={'Category'}
-              callsToAction={callsToAction}
-            />
-            <a
-              href='#'
-              className='hidden text-base text-dark lg:block hover:text-gray-900'
-            >
-              Pricing
-            </a>
-            <a
-              href='#'
-              className='hidden text-base text-dark lg:block hover:text-gray-900'
-            >
-              Docs
-            </a>
-            <PopOverButton
-              items={resources}
-              title='More'
-              callsToAction={callsToAction}
-            />
-          </Popover.Group>
           {!userInfo ? (
             <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
               <UnstyledLink
                 href='/signin'
-                className='text-base text-dark whitespace-nowrap hover:text-gray-900'
+                className='px-2 text-base text-white whitespace-nowrap hover:text-gray-900'
               >
                 Sign in
               </UnstyledLink>
               <UnstyledLink
                 href='/signup'
-                className='border border-transparent inline-flex items-center justify-center ml-8 px-4 py-2 rounded-md shadow-sm text-base text-dark whitespace-nowrap'
+                className='ml-8 px-2 text-base text-white whitespace-nowrap hover:text-gray-900'
               >
                 Sign up
               </UnstyledLink>
             </div>
           ) : (
-            <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
-              <div className='mx-10 relative text-gray-600'>
+            <div className='hidden items-center justify-end md:flex'>
+              <div className='mr-10 relative text-gray-600'>
                 <input
-                  className='bg-white border-2 border-gray-300 h-10 rounded-lg text-sm md:pr-4 lg:pr-20 focus:outline-none'
+                  style={{ width: '100%' }}
+                  className='bg-white border-2 border-gray-300 h-8 rounded-md text-sm md:pr-4 lg:pr-12 focus:outline-none'
                   type='search'
                   name='search'
-                  placeholder='Search'
+                  placeholder='Tìm kiếm'
                 />
                 <button
                   type='submit'
-                  className='absolute mr-4 mt-3 right-0 top-0'
+                  className='absolute mr-4 mt-2 right-0 top-0'
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -228,36 +208,24 @@ export default function Header() {
                 </button>
               </div>
               <PopOverButton
-                className='mt-3'
+                className='float-right mt-3 text-white'
                 size='sm'
                 items={account}
                 title={
                   <>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      className='h-6 w-6'
-                      viewBox='0 0 20 20'
-                      fill='currentColor'
-                    >
-                      <path
-                        fillRule='evenodd'
-                        d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z'
-                        clipRule='evenodd'
-                      />
-                    </svg>
-                    {userInfo?.username}
+                    <UserCircleIcon className='h-7 mr-1 text-white w-7 md:h-6 md:w-6' />
+                    <span className='text-sm text-white'>
+                      {userInfo?.username}
+                    </span>
                   </>
                 }
-                showDropIcon={false}
+                // showDropIcon={false}
                 callsToAction={accountAction}
               />
-              {/* <Button
-                onClick={(e) => handleLogout(e)}
-                variant='ghost'
-                className='border border-transparent rounded-md shadow-sm text-base text-dark'
-              >
-                Logout
-              </Button> */}
+              <span className='cursor-pointer flex text-white'>
+                <ShoppingCartIcon className='h-7 ml-2 mt-1 w-7 md:h-6 md:w-6' />
+                <span className='ml-2 mt-2 text-sm'>Giỏ hàng</span>
+              </span>
             </div>
           )}
         </div>

@@ -5,9 +5,9 @@ import { openGraph } from '@/lib/helper';
 
 // !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Hahaha Application',
-  siteName: 'Hahaha',
-  description: 'An application hahaha',
+  title: 'Mazada Application',
+  siteName: 'Mazada',
+  description: 'Mazada E-commerce',
   url: 'https://glucozo.herokuapp.com/',
   image: 'https://theodorusclarence.com/favicon/large-og.jpg',
   type: 'website',
