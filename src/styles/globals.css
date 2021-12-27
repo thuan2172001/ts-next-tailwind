@@ -96,19 +96,18 @@
 }
 
 .bg-primary {
-  /* background-image: url('/images/header.png'); */
-  background: #1c92d2; /* fallback for old browsers */
+  background: rgb(26, 148, 255);
+  /* background: #1c92d2;
   background: -webkit-linear-gradient(
     to right,
     #1c92d2,
     #86cad8
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  );
   background: linear-gradient(
     to right,
     #1c92d2,
     #86cad8
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 100vw;
+  ); */
 }
 
 @layer utilities {

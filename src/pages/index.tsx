@@ -40,14 +40,68 @@ const items = [
   { src: 'https://images8.alphacoders.com/957/957090.jpg' },
 ];
 
+const leftItem = [
+  {
+    src: 'https://salt.tikicdn.com/cache/w400/ts/banner/22/69/6d/ff9607228a45d54cda97ca5488e716b6.png.webp',
+  },
+];
+
+const subHeader = [
+  {
+    title: 'Thịt',
+  },
+  {
+    title: 'Rau củ quả',
+  },
+  {
+    title: 'Sách',
+  },
+  {
+    title: 'Quần áo',
+  },
+  {
+    title: 'Mỹ phẩm',
+  },
+  {
+    title: 'Voucher',
+  },
+  {
+    title: 'Thẻ cào',
+  },
+  {
+    title: 'Ebook',
+  },
+  {
+    title: 'Ngoại văn',
+  },
+  {
+    title: 'Sticker',
+  },
+  {
+    title: 'Đồ ăn nhanh',
+  },
+];
+
 export default function HomePage() {
   return (
     <Layout>
+      <div className='sub-header'>
+        <div className='layout py-2'>
+          {subHeader.map((item) => {
+            return (
+              <a key={item.title} className='px-4'>
+                {item.title}
+              </a>
+            );
+          })}
+        </div>
+      </div>
       <Seo templateTitle='Home' />
-      <main>
-        <section className='bg-white h-screen'>
-          <div className='h-min'>
-            <Carousel items={items} />
+      <main className='bg-gray-100'>
+        <section className='bg-white h-screen layout'>
+          <div className='gap-4 grid grid-flow-col h-min'>
+            <Carousel className='col-span-5' items={items} />
+            <Carousel className='col-span-3' items={leftItem} />
           </div>
         </section>
       </main>

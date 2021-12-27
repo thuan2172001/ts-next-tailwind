@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 /* This example requires Tailwind CSS v2.0+ */
@@ -13,20 +14,21 @@ import {
   RefreshIcon,
   ShieldCheckIcon,
   SupportIcon,
+  UserCircleIcon,
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline';
+import { LogoutIcon } from '@heroicons/react/solid';
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PopUpItemsProps } from '@/config/interface';
 
-import Button from '../buttons/Button';
 import { PopOverButton } from '../buttons/PopOverButton';
 import UnstyledLink from '../links/UnstyledLink';
 
-const solutions: PopUpItemsProps[] = [
+const categories: PopUpItemsProps[] = [
   {
     name: 'Analytics',
     description:
@@ -61,9 +63,10 @@ const solutions: PopUpItemsProps[] = [
   },
 ];
 const callsToAction: PopUpItemsProps[] = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  { name: 'Watch Demo', onClick: () => {}, icon: PlayIcon },
+  { name: 'Contact Sales', onClick: () => {}, icon: PhoneIcon },
 ];
+
 const resources: PopUpItemsProps[] = [
   {
     name: 'Help Center',
@@ -93,6 +96,20 @@ const resources: PopUpItemsProps[] = [
     icon: ShieldCheckIcon,
   },
 ];
+const account: PopUpItemsProps[] = [
+  {
+    name: 'Account management',
+    description: 'Edit your information.',
+    href: '#',
+    icon: UserCircleIcon,
+  },
+  {
+    name: 'Security',
+    description: 'Understand how we take your privacy seriously.',
+    href: '#',
+    icon: ShieldCheckIcon,
+  },
+];
 
 export default function Header() {
   const userInfo = useSelector((state: any) => state.auth);
@@ -103,22 +120,34 @@ export default function Header() {
     dispatch({ type: 'DELETE' });
     router.push('/signin');
   };
+  const accountAction: PopUpItemsProps[] = [
+    { name: 'Help', onClick: () => {}, icon: SupportIcon },
+    { name: 'Logout', onClick: handleLogout, icon: LogoutIcon },
+  ];
   return (
     <Popover className='bg-primary relative sticky top-0 z-50'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
         <div className='border-gray-100 flex items-center justify-between py-1 md:justify-start md:space-x-10'>
-          <div className='flex justify-start lg:flex-1 lg:w-0'>
+          <div className='flex justify-start'>
             <span
               className='cursor-pointer flex'
               onClick={() => router.push('/')}
             >
               <span className='sr-only'>Workflow</span>
               <img
-                className='h-8 w-auto sm:h-10'
+                className='h-16 w-auto sm:h-16'
                 src='/images/logo.svg'
                 alt=''
               />
-              <span style={{ alignSelf: 'center' }}>Hahaha</span>
+              <span
+                style={{
+                  alignSelf: 'center',
+                  fontSize: '22px',
+                  color: 'white',
+                }}
+              >
+                MAGAZINE
+              </span>
             </span>
           </div>
           <div className='-mr-2 -my-2 md:hidden'>
@@ -127,16 +156,25 @@ export default function Header() {
               <MenuIcon className='h-6 w-6' aria-hidden='true' />
             </Popover.Button>
           </div>
-          <Popover.Group as='nav' className='hidden space-x-10 md:flex'>
+          <Popover.Group
+            as='nav'
+            className='hidden md:flex md:space-x-1 lg:space-x-10'
+          >
             <PopOverButton
-              items={solutions}
-              title={'Solutions'}
+              items={categories}
+              title={'Category'}
               callsToAction={callsToAction}
             />
-            <a href='#' className='text-base text-dark hover:text-gray-900'>
+            <a
+              href='#'
+              className='hidden text-base text-dark lg:block hover:text-gray-900'
+            >
               Pricing
             </a>
-            <a href='#' className='text-base text-dark hover:text-gray-900'>
+            <a
+              href='#'
+              className='hidden text-base text-dark lg:block hover:text-gray-900'
+            >
               Docs
             </a>
             <PopOverButton
@@ -162,13 +200,64 @@ export default function Header() {
             </div>
           ) : (
             <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
-              <Button
+              <div className='mx-10 relative text-gray-600'>
+                <input
+                  className='bg-white border-2 border-gray-300 h-10 rounded-lg text-sm md:pr-4 lg:pr-20 focus:outline-none'
+                  type='search'
+                  name='search'
+                  placeholder='Search'
+                />
+                <button
+                  type='submit'
+                  className='absolute mr-4 mt-3 right-0 top-0'
+                >
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='h-4 w-4'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                    />
+                  </svg>
+                </button>
+              </div>
+              <PopOverButton
+                className='mt-3'
+                size='sm'
+                items={account}
+                title={
+                  <>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='h-6 w-6'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'
+                    >
+                      <path
+                        fillRule='evenodd'
+                        d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z'
+                        clipRule='evenodd'
+                      />
+                    </svg>
+                    {userInfo?.username}
+                  </>
+                }
+                showDropIcon={false}
+                callsToAction={accountAction}
+              />
+              {/* <Button
                 onClick={(e) => handleLogout(e)}
                 variant='ghost'
                 className='border border-transparent rounded-md shadow-sm text-base text-dark'
               >
                 Logout
-              </Button>
+              </Button> */}
             </div>
           )}
         </div>
@@ -210,7 +299,7 @@ export default function Header() {
               </div>
               <div className='mt-6'>
                 <nav className='gap-y-8 grid'>
-                  {solutions.map((item) => (
+                  {categories.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}

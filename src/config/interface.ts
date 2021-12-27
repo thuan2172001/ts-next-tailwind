@@ -7,7 +7,9 @@ export enum Status {
 export type PopUpItemsProps = {
   name: string;
   description?: string;
-  href: string;
+  href?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onClick?: (e: any) => void;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
 };
 
