@@ -133,8 +133,8 @@ export default function Header() {
   return (
     <Popover className='bg-primary relative sticky top-0 z-50'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
-        <div className='border-gray-100 flex items-center justify-between py-1 md:space-x-10'>
-          <div className='flex'>
+        <div className='border-gray-100 grid grid-cols-8 items-center justify-between py-1 md:space-x-10'>
+          <div className='col-span-2 flex lg:col-span-1'>
             <span
               className='cursor-pointer flex'
               onClick={() => router.push('/')}
@@ -156,14 +156,14 @@ export default function Header() {
               </span>
             </span>
           </div>
-          <div className='-mr-2 -my-2 md:hidden'>
+          <div className='-mr-2 -my-2 col-start-9 md:hidden'>
             <Popover.Button className='inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-inset'>
               <span className='sr-only'>Open menu</span>
               <MenuIcon className='h-6 w-6' aria-hidden='true' />
             </Popover.Button>
           </div>
           {!userInfo ? (
-            <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
+            <div className='col-span-6 hidden items-center justify-end md:flex md:flex-1 lg:col-span-7 lg:w-0'>
               <UnstyledLink
                 href='/signin'
                 className='px-2 text-base text-white whitespace-nowrap hover:text-gray-900'
@@ -178,8 +178,8 @@ export default function Header() {
               </UnstyledLink>
             </div>
           ) : (
-            <div className='hidden items-center justify-end md:flex'>
-              <div className='mr-10 relative text-gray-600'>
+            <div className='col-span-6 hidden items-center justify-end md:grid md:grid-cols-8 lg:col-span-7'>
+              <div className='mr-10 relative text-gray-600 md:col-span-4 lg:col-span-6'>
                 <input
                   style={{ width: '100%' }}
                   className='bg-white border-2 border-gray-300 h-8 rounded-md text-sm md:pr-4 lg:pr-12 focus:outline-none'
@@ -208,7 +208,7 @@ export default function Header() {
                 </button>
               </div>
               <PopOverButton
-                className='float-right mt-3 text-white'
+                className='float-right mt-3 text-white md:col-span-2 lg:col-span-1'
                 size='sm'
                 items={account}
                 title={
@@ -222,9 +222,9 @@ export default function Header() {
                 // showDropIcon={false}
                 callsToAction={accountAction}
               />
-              <span className='cursor-pointer flex text-white'>
+              <span className='cursor-pointer flex ml-3 text-white md:col-span-2 lg:col-span-1'>
                 <ShoppingCartIcon className='h-7 ml-2 mt-1 w-7 md:h-6 md:w-6' />
-                <span className='ml-2 mt-2 text-sm'>Giỏ hàng</span>
+                <span className='ml- mt-2 text-sm'>Giỏ hàng</span>
               </span>
             </div>
           )}
