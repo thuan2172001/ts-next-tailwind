@@ -1,23 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { configureStore } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
-const data = createSlice({
-  name: 'data',
-  initialState: {
-    userInfo: null,
-  },
-  reducers: {
-    setData: (state: any, action) => {
-      for (const i in action.payload) {
-        state[i] = action.payload[i];
-      }
-    },
-  },
-});
-export default configureStore({
-  reducer: {
-    data: data.reducer,
-  },
+import { combineReducers, createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+import authReducer from './authReducer';
+const reducers = combineReducers({
+  auth: authReducer,
 });
 
-export const { setData } = data.actions;
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+export default function configure() {
+  const store = createStore(persistedReducer);
+  const persistor = persistStore(store);
+  return { store, persistor };
+}

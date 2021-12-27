@@ -21,7 +21,6 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PopUpItemsProps } from '@/config/interface';
-import { setData } from '@/reducer/store';
 
 import Button from '../buttons/Button';
 import { PopOverButton } from '../buttons/PopOverButton';
@@ -96,16 +95,12 @@ const resources: PopUpItemsProps[] = [
 ];
 
 export default function Header() {
-  const userInfo = useSelector((state: any) => state.data.userInfo);
+  const userInfo = useSelector((state: any) => state.auth);
   const dispatch = useDispatch();
   const router = useRouter();
   const handleLogout = (e: any) => {
     e.preventDefault();
-    dispatch(
-      setData({
-        userInfo: null,
-      })
-    );
+    dispatch({ type: 'DELETE' });
     router.push('/signin');
   };
   return (
@@ -138,16 +133,10 @@ export default function Header() {
               title={'Solutions'}
               callsToAction={callsToAction}
             />
-            <a
-              href='#'
-              className='className=text-base text-dark hover:text-gray-900'
-            >
+            <a href='#' className='text-base text-dark hover:text-gray-900'>
               Pricing
             </a>
-            <a
-              href='#'
-              className='className=text-base text-dark hover:text-gray-900'
-            >
+            <a href='#' className='text-base text-dark hover:text-gray-900'>
               Docs
             </a>
             <PopOverButton
@@ -160,13 +149,13 @@ export default function Header() {
             <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
               <UnstyledLink
                 href='/signin'
-                className='className=text-base text-dark whitespace-nowrap hover:text-gray-900'
+                className='text-base text-dark whitespace-nowrap hover:text-gray-900'
               >
                 Sign in
               </UnstyledLink>
               <UnstyledLink
                 href='/signup'
-                className='border border-transparent className=inline-flex items-center justify-center ml-8 px-4 py-2 rounded-md shadow-sm text-base text-dark whitespace-nowrap'
+                className='border border-transparent inline-flex items-center justify-center ml-8 px-4 py-2 rounded-md shadow-sm text-base text-dark whitespace-nowrap'
               >
                 Sign up
               </UnstyledLink>
@@ -175,7 +164,8 @@ export default function Header() {
             <div className='hidden items-center justify-end md:flex md:flex-1 lg:w-0'>
               <Button
                 onClick={(e) => handleLogout(e)}
-                className='border border-transparent className=rounded-md shadow-sm text-base text-dark'
+                variant='ghost'
+                className='border border-transparent rounded-md shadow-sm text-base text-dark'
               >
                 Logout
               </Button>
@@ -230,7 +220,7 @@ export default function Header() {
                         className='flex-shrink-0 h-6 text-indigo-600 w-6'
                         aria-hidden='true'
                       />
-                      <span className='className=ml-3 text-base text-gray-900'>
+                      <span className='ml-3 text-base text-gray-900'>
                         {item.name}
                       </span>
                     </a>
@@ -242,14 +232,14 @@ export default function Header() {
               <div className='gap-x-8 gap-y-4 grid grid-cols-2'>
                 <a
                   href='#'
-                  className='className=text-base text-gray-900 hover:text-gray-700'
+                  className='text-base text-gray-900 hover:text-gray-700'
                 >
                   Pricing
                 </a>
 
                 <a
                   href='#'
-                  className='className=text-base text-gray-900 hover:text-gray-700'
+                  className='text-base text-gray-900 hover:text-gray-700'
                 >
                   Docs
                 </a>
@@ -257,7 +247,7 @@ export default function Header() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className='className=text-base text-gray-900 hover:text-gray-700'
+                    className='text-base text-gray-900 hover:text-gray-700'
                   >
                     {item.name}
                   </a>
@@ -267,11 +257,11 @@ export default function Header() {
                 <div>
                   <a
                     href='#'
-                    className='bg-indigo-600 border border-transparent className=items-center flex justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
+                    className='bg-indigo-600 border border-transparent flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
                   >
                     Sign up
                   </a>
-                  <p className='className=mt-6 text-base text-center text-gray-500'>
+                  <p className='mt-6 text-base text-center text-gray-500'>
                     Existing customer?
                     <a
                       href='#'
@@ -285,7 +275,7 @@ export default function Header() {
                 <div>
                   <span
                     onClick={(e) => handleLogout(e)}
-                    className='bg-indigo-600 border border-transparent className=items-center flex justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
+                    className='bg-indigo-600 border border-transparent flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
                   >
                     Logout
                   </span>
