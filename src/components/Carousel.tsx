@@ -10,9 +10,15 @@ import { CarouselItem } from '@/config/interface';
 export default function Carousel({
   className,
   items,
+  showThumbs = false,
+  showStatus = false,
+  showArrows = false,
   ...props
 }: {
   className?: string;
+  showThumbs?: boolean;
+  showStatus?: boolean;
+  showArrows?: boolean;
   items: CarouselItem[];
   props?: CarouselProps;
 }) {
@@ -20,9 +26,9 @@ export default function Carousel({
     <ReactCarousel
       className={className}
       autoPlay
-      showThumbs={false}
-      showStatus={false}
-      showArrows={false}
+      showThumbs={showThumbs}
+      showStatus={showStatus}
+      showArrows={showArrows}
       showIndicators={items.length > 1}
       {...props}
       infiniteLoop

@@ -34,7 +34,7 @@ export default function Button({
       className={clsx(
         className,
         'font-semibold items-center px-4 py-2 rounded',
-        'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
+        'focus:outline-none',
         'shadow-sm',
         'duration-75 transition-colors',
         [

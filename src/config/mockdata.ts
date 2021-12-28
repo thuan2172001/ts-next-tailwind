@@ -64,6 +64,72 @@ export const subHeader = [
   {
     title: 'Đồ ăn nhanh',
   },
+  {
+    title: 'Thịt',
+  },
+  {
+    title: 'Rau củ quả',
+  },
+  {
+    title: 'Sách',
+  },
+  {
+    title: 'Quần áo',
+  },
+  {
+    title: 'Mỹ phẩm',
+  },
+  {
+    title: 'Voucher',
+  },
+  {
+    title: 'Thẻ cào',
+  },
+  {
+    title: 'Ebook',
+  },
+  {
+    title: 'Ngoại văn',
+  },
+  {
+    title: 'Sticker',
+  },
+  {
+    title: 'Đồ ăn nhanh',
+  },
+  {
+    title: 'Thịt',
+  },
+  {
+    title: 'Rau củ quả',
+  },
+  {
+    title: 'Sách',
+  },
+  {
+    title: 'Quần áo',
+  },
+  {
+    title: 'Mỹ phẩm',
+  },
+  {
+    title: 'Voucher',
+  },
+  {
+    title: 'Thẻ cào',
+  },
+  {
+    title: 'Ebook',
+  },
+  {
+    title: 'Ngoại văn',
+  },
+  {
+    title: 'Sticker',
+  },
+  {
+    title: 'Đồ ăn nhanh',
+  },
 ];
 
 export const products = [

@@ -5,18 +5,12 @@
 import { Popover, Transition } from '@headlessui/react';
 import {
   BellIcon,
-  BookmarkAltIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CursorClickIcon,
   LogoutIcon,
   MenuIcon,
-  RefreshIcon,
   ShieldCheckIcon,
   ShoppingCartIcon,
   SupportIcon,
   UserCircleIcon,
-  ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
@@ -28,74 +22,6 @@ import { PopUpItemsProps } from '@/config/interface';
 import { PopOverButton } from '../buttons/PopOverButton';
 import UnstyledLink from '../links/UnstyledLink';
 
-const categories: PopUpItemsProps[] = [
-  {
-    name: 'Analytics',
-    description:
-      'Get a better understanding of where your traffic is coming from.',
-    href: '#',
-    icon: ChartBarIcon,
-  },
-  {
-    name: 'Engagement',
-    description: 'Speak directly to your customers in a more meaningful way.',
-    href: '#',
-    icon: CursorClickIcon,
-  },
-  {
-    name: 'Security',
-    description: "Your customers' data will be safe and secure.",
-    href: '#',
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: 'Integrations',
-    description: "Connect with third-party tools that you're already using.",
-    href: '#',
-    icon: ViewGridIcon,
-  },
-  {
-    name: 'Automations',
-    description:
-      'Build strategic funnels that will drive your customers to convert',
-    href: '#',
-    icon: RefreshIcon,
-  },
-];
-// const callsToAction: PopUpItemsProps[] = [
-//   { name: 'Watch Demo', onClick: () => { }, icon: PlayIcon },
-//   { name: 'Contact Sales', onClick: () => { }, icon: PhoneIcon },
-// ];
-
-const resources: PopUpItemsProps[] = [
-  {
-    name: 'Help Center',
-    description:
-      'Get all of your questions answered in our forums or contact support.',
-    href: '#',
-    icon: SupportIcon,
-  },
-  {
-    name: 'Guides',
-    description:
-      'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
-    icon: BookmarkAltIcon,
-  },
-  {
-    name: 'Events',
-    description:
-      'See what meet-ups and other events we might be planning near you.',
-    href: '#',
-    icon: CalendarIcon,
-  },
-  {
-    name: 'Security',
-    description: 'Understand how we take your privacy seriously.',
-    href: '#',
-    icon: ShieldCheckIcon,
-  },
-];
 const account: PopUpItemsProps[] = [
   {
     name: 'Notification',
@@ -163,7 +89,7 @@ export default function Header() {
             </Popover.Button>
           </div>
           {!userInfo ? (
-            <div className='col-span-6 hidden items-center justify-end md:flex md:flex-1 lg:col-span-7 lg:w-0'>
+            <div className='hidden items-center justify-end md:col-start-9 md:flex md:flex-1 lg:w-0'>
               <UnstyledLink
                 href='/signin'
                 className='px-2 text-base text-white whitespace-nowrap hover:text-gray-900'
@@ -182,7 +108,7 @@ export default function Header() {
               <div className='mr-10 relative text-gray-600 md:col-span-4 lg:col-span-6'>
                 <input
                   style={{ width: '100%' }}
-                  className='bg-white border-2 border-gray-300 h-8 rounded-md text-sm md:pr-4 lg:pr-12 focus:outline-none'
+                  className='bg-white border-2 border-gray-300 h-8 rounded-md text-sm md:pr-10 md:pr-4 lg:pr-12 focus:outline-none'
                   type='search'
                   name='search'
                   placeholder='Tìm kiếm'
@@ -267,45 +193,51 @@ export default function Header() {
               </div>
               <div className='mt-6'>
                 <nav className='gap-y-8 grid'>
-                  {categories.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className='-m-3 flex items-center p-3 rounded-md hover:bg-gray-50'
+                  <input
+                    style={{ width: '100%' }}
+                    className='bg-white border-2 border-gray-300 h-8 pr-8 rounded-md text-sm md:pr-4 lg:pr-12 focus:outline-none'
+                    type='search'
+                    name='search'
+                    placeholder='Tìm kiếm'
+                  />
+                  <button type='submit' className='absolute mr-4 mt-2 right-6'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='h-4 w-4'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
                     >
-                      <item.icon
-                        className='flex-shrink-0 h-6 text-indigo-600 w-6'
-                        aria-hidden='true'
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
                       />
-                      <span className='ml-3 text-base text-gray-900'>
-                        {item.name}
-                      </span>
-                    </a>
-                  ))}
+                    </svg>
+                  </button>
                 </nav>
               </div>
             </div>
             <div className='px-5 py-6 space-y-6'>
               <div className='gap-x-8 gap-y-4 grid grid-cols-2'>
-                <a
-                  href='#'
-                  className='text-base text-gray-900 hover:text-gray-700'
-                >
-                  Pricing
+                <a className='flex text-base text-gray-900 hover:text-gray-700'>
+                  <ShoppingCartIcon
+                    className='flex-shrink-0 h-6 mr-2 text-indigo-600 w-6'
+                    aria-hidden='true'
+                  />
+                  Cart
                 </a>
-
-                <a
-                  href='#'
-                  className='text-base text-gray-900 hover:text-gray-700'
-                >
-                  Docs
-                </a>
-                {resources.map((item) => (
+                {account.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className='text-base text-gray-900 hover:text-gray-700'
+                    className='flex text-base text-gray-900 hover:text-gray-700'
                   >
+                    <item.icon
+                      className='flex-shrink-0 h-6 mr-2 text-indigo-600 w-6'
+                      aria-hidden='true'
+                    />
                     {item.name}
                   </a>
                 ))}

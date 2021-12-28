@@ -22,11 +22,14 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 export default function HomePage() {
   return (
     <Layout>
-      <div className='sub-header'>
-        <div className='layout py-2'>
+      <div className='container mx-auto px-6 py-3 sub-header'>
+        <div className='-mx-3 flex overflow-x-auto scroll-hidden'>
           {subHeader.map((item) => {
             return (
-              <a key={item.title} className='px-4'>
+              <a
+                key={item.title}
+                className='flex-none leading-5 px-3 text-gray-700 text-sm hover:text-blue-600'
+              >
                 {item.title}
               </a>
             );

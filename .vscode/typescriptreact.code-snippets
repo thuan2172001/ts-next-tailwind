@@ -101,7 +101,7 @@
       "export const getStaticProps: GetStaticProps = async ({ locale }) => {",
       "  return {",
       "    props: {",
-      "      ...(await serverSideTranslations(locale || 'en', ['common', 'footer'])),",
+      "      ...(await serverSideTranslations(locale || 'en', ['common'])),",
       "    },",
       "  };",
       "};"
@@ -123,9 +123,11 @@
   "Get Server Side Props": {
     "prefix": "gssp",
     "body": [
-      "export const getServerSideProps: GetServerSideProps = async (context) => {",
+      "export const getServerSideProps: GetServerSideProps = async ({ locale }) => {",
       "  return {",
-      "    props: {}",
+      "    props: {",
+      "      ...(await serverSideTranslations(locale || 'en', ['common'])),",
+      "    }",
       "  };",
       "}"
     ]

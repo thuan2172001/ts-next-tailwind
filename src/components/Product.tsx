@@ -16,7 +16,7 @@ export default function Product({
   return (
     <a
       key={product.id}
-      href={product.href}
+      href={`/product/${product.id}`}
       className={clsx(className, 'group')}
       style={style}
     >
