@@ -18,6 +18,7 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PopUpItemsProps } from '@/config/interface';
+import ui from '@/utils/ui';
 
 import { PopOverButton } from '../buttons/PopOverButton';
 import UnstyledLink from '../links/UnstyledLink';
@@ -148,7 +149,14 @@ export default function Header() {
                 // showDropIcon={false}
                 callsToAction={accountAction}
               />
-              <span className='cursor-pointer flex ml-3 text-white md:col-span-2 lg:col-span-1'>
+              <span
+                className='cursor-pointer flex ml-3 text-white md:col-span-2 lg:col-span-1'
+                onClick={() => {
+                  ui.alertDanger('Successfully test', 'Xin chao cac ban');
+                  ui.alertSuccess('Successfully test', 'Xin chao cac ban');
+                  ui.alertFailed('Successfully test', 'Xin chao cac ban');
+                }}
+              >
                 <ShoppingCartIcon className='h-7 ml-2 mt-1 w-7 md:h-6 md:w-6' />
                 <span className='ml- mt-2 text-sm'>Giỏ hàng</span>
               </span>

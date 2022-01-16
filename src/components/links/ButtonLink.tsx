@@ -30,10 +30,10 @@ export default function ButtonLink({
       {...rest}
       className={clsx(
         className,
-        'inline-flex items-center px-4 py-2 font-semibold rounded',
+        'font-semibold inline-flex items-center px-4 py-2 rounded',
         'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
         'shadow-sm',
-        'transition-colors duration-75',
+        'duration-75 transition-colors',
         [
           variant === 'primary' && [
             'bg-primary-400 text-white',

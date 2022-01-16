@@ -12,13 +12,15 @@ import Layout from '@/components/layout/Layout';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
+import { setUserInfo } from '@/reducer/auth.slice';
+
 export default function LoginPage() {
   const [showPassword, setshowPassword] = React.useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    dispatch({ type: 'SET', payload: { username: 'thuan2172001', id: '123' } });
+    dispatch(setUserInfo({ username: 'thuan2172001' }));
     router.push('/');
   };
   return (

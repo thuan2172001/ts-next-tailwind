@@ -24,10 +24,10 @@ export default function HomePage() {
     <Layout>
       <div className='container mx-auto px-6 py-3 sub-header'>
         <div className='-mx-3 flex overflow-x-auto scroll-hidden'>
-          {subHeader.map((item) => {
+          {subHeader.map((item, i: number) => {
             return (
               <a
-                key={item.title}
+                key={item.title + i}
                 className='flex-none leading-5 px-3 text-gray-700 text-sm hover:text-blue-600'
               >
                 {item.title}

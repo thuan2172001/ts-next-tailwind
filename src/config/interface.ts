@@ -25,3 +25,9 @@ export type ProductProps = {
   name?: string;
   price?: number | string;
 };
+
+export enum ModalType {
+  Alert,
+  Success,
+  Failed,
+}

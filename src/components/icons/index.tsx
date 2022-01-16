@@ -64,7 +64,7 @@ export function MediaIcon({
       className={clsx(className, 'cursor-pointer')}
       height='32px'
       width='32px'
-      src={`/images/${type}.webp`}
+      src={`/images/social-media/${type}.webp`}
       alt={type}
     />
   );
