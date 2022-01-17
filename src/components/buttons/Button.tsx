@@ -40,7 +40,7 @@ export default function Button({
       disabled={disabled}
       className={clsx(
         className,
-        `${color}`,
+        `custom-color-${color}`,
         'font-semibold items-center px-4 py-2 rounded',
         'focus:outline-none',
         'shadow-sm',
