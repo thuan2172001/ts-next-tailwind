@@ -35,6 +35,7 @@ export default function Button({
 
   // danger (red - white)
   // alert (yellow - black)
+  // info (gray - black)
 
   const initArgs = (): Array<string> => {
     switch (variant) {
