@@ -28,6 +28,29 @@
   /* #endregion  /**======== Primary Color =========== */
 }
 
+.red {
+  --tw-clr-primary-50: 254, 242, 242;
+  --tw-clr-primary-100: 254, 226, 226;
+  --tw-clr-primary-200: 254, 202, 202;
+  --tw-clr-primary-300: 252, 165, 165;
+  --tw-clr-primary-400: 248, 113, 113;
+  --tw-clr-primary-500: 239, 68, 68;
+  --tw-clr-primary-600: 220, 38, 38;
+  --tw-clr-primary-700: 185, 28, 28;
+  --tw-clr-primary-800: 153, 27, 27;
+  --tw-clr-primary-900: 127, 29, 29;
+  --clr-primary-50: rgb(var(--tw-clr-primary-50)); /* #fef2f2 */
+  --clr-primary-100: rgb(var(--tw-clr-primary-100)); /* #fee2e2 */
+  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #fecaca */
+  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #fca5a5 */
+  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #f87171 */
+  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #ef4444 */
+  --clr-primary-600: rgb(var(--tw-clr-primary-600)); /* #dc2626 */
+  --clr-primary-700: rgb(var(--tw-clr-primary-700)); /* #b91c1c */
+  --clr-primary-800: rgb(var(--tw-clr-primary-800)); /* #991b1b */
+  --clr-primary-900: rgb(var(--tw-clr-primary-900)); /* #7f1d1d */
+}
+
 @layer base {
   /* inter var - latin */
   @font-face {

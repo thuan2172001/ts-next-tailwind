@@ -117,6 +117,7 @@ export default function LoginPage() {
                         <Button
                           onClick={(e) => handleSubmit(e)}
                           className='mb-1 mr-1 px-6 py-3 shadow w-full'
+                          color='red'
                           variant='primary'
                         >
                           Sign In
