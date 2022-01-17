@@ -106,6 +106,7 @@
   --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #ddd6fe */
   --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #c4b5fd */
   --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #a78bfa */
+  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #a78bfa */
   --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #8b5cf6 */
   --clr-primary-600: rgb(var(--tw-clr-primary-600)); /* #7c3aed */
   --clr-primary-700: rgb(var(--tw-clr-primary-700)); /* #6d28d9 */
@@ -344,49 +345,49 @@
 }
 
 .orange {
-  --tw-clr-primary-50: 255, 247, 237;
-  --tw-clr-primary-100: 255, 237, 213;
-  --tw-clr-primary-200: 254, 215, 170;
-  --tw-clr-primary-300: 253, 186, 116;
-  --tw-clr-primary-400: 251, 146, 60;
-  --tw-clr-primary-500: 249, 115, 22;
-  --tw-clr-primary-600: 234, 88, 12;
-  --tw-clr-primary-700: 194, 65, 12;
-  --tw-clr-primary-800: 154, 52, 18;
-  --tw-clr-primary-900: 124, 45, 18;
-  --clr-primary-50: rgb(var(--tw-clr-primary-50)); /* #fff7ed */
-  --clr-primary-100: rgb(var(--tw-clr-primary-100)); /* #ffedd5 */
-  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #fed7aa */
-  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #fdba74 */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #fb923c */
-  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #f97316 */
-  --clr-primary-600: rgb(var(--tw-clr-primary-600)); /* #ea580c */
-  --clr-primary-700: rgb(var(--tw-clr-primary-700)); /* #c2410c */
-  --clr-primary-800: rgb(var(--tw-clr-primary-800)); /* #9a3412 */
-  --clr-primary-900: rgb(var(--tw-clr-primary-900)); /* #7c2d12 */
+  --tw-clr-orange-50: 255, 247, 237;
+  --tw-clr-orange-100: 255, 237, 213;
+  --tw-clr-orange-200: 254, 215, 170;
+  --tw-clr-orange-300: 253, 186, 116;
+  --tw-clr-orange-400: 251, 146, 60;
+  --tw-clr-orange-500: 249, 115, 22;
+  --tw-clr-orange-600: 234, 88, 12;
+  --tw-clr-orange-700: 194, 65, 12;
+  --tw-clr-orange-800: 154, 52, 18;
+  --tw-clr-orange-900: 124, 45, 18;
+  --clr-orange-50: rgb(var(--tw-clr-orange-50)); /* #fff7ed */
+  --clr-orange-100: rgb(var(--tw-clr-orange-100)); /* #ffedd5 */
+  --clr-orange-200: rgb(var(--tw-clr-orange-200)); /* #fed7aa */
+  --clr-orange-300: rgb(var(--tw-clr-orange-300)); /* #fdba74 */
+  --clr-orange-400: rgb(var(--tw-clr-orange-400)); /* #fb923c */
+  --clr-orange-500: rgb(var(--tw-clr-orange-500)); /* #f97316 */
+  --clr-orange-600: rgb(var(--tw-clr-orange-600)); /* #ea580c */
+  --clr-orange-700: rgb(var(--tw-clr-orange-700)); /* #c2410c */
+  --clr-orange-800: rgb(var(--tw-clr-orange-800)); /* #9a3412 */
+  --clr-orange-900: rgb(var(--tw-clr-orange-900)); /* #7c2d12 */
 }
 
 .red {
-  --tw-clr-primary-50: 254, 242, 242;
-  --tw-clr-primary-100: 254, 226, 226;
-  --tw-clr-primary-200: 254, 202, 202;
-  --tw-clr-primary-300: 252, 165, 165;
-  --tw-clr-primary-400: 248, 113, 113;
-  --tw-clr-primary-500: 239, 68, 68;
-  --tw-clr-primary-600: 220, 38, 38;
-  --tw-clr-primary-700: 185, 28, 28;
-  --tw-clr-primary-800: 153, 27, 27;
-  --tw-clr-primary-900: 127, 29, 29;
-  --clr-primary-50: rgb(var(--tw-clr-primary-50)); /* #fef2f2 */
-  --clr-primary-100: rgb(var(--tw-clr-primary-100)); /* #fee2e2 */
-  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #fecaca */
-  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #fca5a5 */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #f87171 */
-  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #ef4444 */
-  --clr-primary-600: rgb(var(--tw-clr-primary-600)); /* #dc2626 */
-  --clr-primary-700: rgb(var(--tw-clr-primary-700)); /* #b91c1c */
-  --clr-primary-800: rgb(var(--tw-clr-primary-800)); /* #991b1b */
-  --clr-primary-900: rgb(var(--tw-clr-primary-900)); /* #7f1d1d */
+  --tw-clr-red-50: 254, 242, 242;
+  --tw-clr-red-100: 254, 226, 226;
+  --tw-clr-red-200: 254, 202, 202;
+  --tw-clr-red-300: 252, 165, 165;
+  --tw-clr-red-400: 248, 113, 113;
+  --tw-clr-red-500: 239, 68, 68;
+  --tw-clr-red-600: 220, 38, 38;
+  --tw-clr-red-700: 185, 28, 28;
+  --tw-clr-red-800: 153, 27, 27;
+  --tw-clr-red-900: 127, 29, 29;
+  --clr-red-50: rgb(var(--tw-clr-red-50)); /* #fef2f2 */
+  --clr-red-100: rgb(var(--tw-clr-red-100)); /* #fee2e2 */
+  --clr-red-200: rgb(var(--tw-clr-red-200)); /* #fecaca */
+  --clr-red-300: rgb(var(--tw-clr-red-300)); /* #fca5a5 */
+  --clr-red-400: rgb(var(--tw-clr-red-400)); /* #f87171 */
+  --clr-red-500: rgb(var(--tw-clr-red-500)); /* #ef4444 */
+  --clr-red-600: rgb(var(--tw-clr-red-600)); /* #dc2626 */
+  --clr-red-700: rgb(var(--tw-clr-red-700)); /* #b91c1c */
+  --clr-red-800: rgb(var(--tw-clr-red-800)); /* #991b1b */
+  --clr-red-900: rgb(var(--tw-clr-red-900)); /* #7f1d1d */
 }
 
 .stone {
