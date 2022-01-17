@@ -97,7 +97,9 @@ export default function ProductPage() {
                 </div>
                 <div className='mt-10'></div>
                 <div className='gap-4 grid grid-cols-8 mt-10'>
-                  <Button className='col-span-4'>Chọn mua</Button>
+                  <Button className='col-span-4' color='blue'>
+                    Chọn mua
+                  </Button>
                   <Button variant='outline' className='col-span-4 sm:text-sm'>
                     Chat{' '}
                     <span className='hidden md:inline-block'>
