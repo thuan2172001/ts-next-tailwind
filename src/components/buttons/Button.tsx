@@ -181,7 +181,7 @@ export default function Button({
         overrideClassNames,
         'disabled:cursor-not-allowed',
         isLoading &&
-          'relative !text-transparent hover:!text-transparent !cursor-wait !transition-none',
+        'relative !text-transparent hover:!text-transparent !cursor-wait !transition-none',
         `${mainColor}`
       )}
     >
