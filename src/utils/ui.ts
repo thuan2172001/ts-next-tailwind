@@ -20,5 +20,18 @@ function alertFailed(
 ) {
   store.dispatch(addModal({ type: ModalType.Failed, title, msg }));
 }
-const ui = { alertDanger, alertSuccess, alertFailed };
+function alertResetPasswordSuccess(
+  title: string | React.ReactElement,
+  msg?: string | React.ReactElement
+) {
+  store.dispatch(
+    addModal({ type: ModalType.ResetPasswordSuccess, title, msg })
+  );
+}
+const ui = {
+  alertDanger,
+  alertSuccess,
+  alertFailed,
+  alertResetPasswordSuccess,
+};
 export default ui;
