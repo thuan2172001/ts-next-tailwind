@@ -31,4 +31,5 @@ export enum ModalType {
   Success,
   Failed,
   ResetPasswordSuccess,
+  MailOtp,
 }

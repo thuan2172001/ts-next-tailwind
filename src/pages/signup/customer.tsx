@@ -1,32 +1,41 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
-import { Form } from 'antd';
+import { Button, Checkbox, Form } from 'antd';
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
 import ui from '@/utils/ui';
 
-export default function ResetPassword() {
+export default function SignupPage() {
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isAgreeTerm, setIsAgreeTerm] = useState(false);
 
-  const handleResetPassword = (e: any) => {
+  const handleSignup = (e: any) => {
     e.preventDefault();
-    console.log({
-      password,
-      confirmPassword,
-    });
-    ui.alertResetPasswordSuccess('Password has been reset');
+    ui.alertMailOtp(
+      `Check your email ${
+        email.slice(0, email.indexOf('@')).replace(/./g, '*') +
+        email.slice(email.indexOf('@'))
+      }`,
+      `Confirmation link has been sent to email address ${
+        email.slice(0, email.indexOf('@')).replace(/./g, '*') +
+        email.slice(email.indexOf('@'))
+      }. Please check your mailbox`,
+      () => {
+        console.log('a');
+      }
+    );
     // ui.alertFailed('Successfully test', 'Xin chao cac ban');
   };
-
   return (
     <Layout hiddenHeader={true} hiddenFooter={true}>
       <Seo templateTitle='Reset Password' />
@@ -38,12 +47,61 @@ export default function ResetPassword() {
               <div className='px-4 w-full lg:w-6/12'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
                   <div className='flex-auto pt-8 px-4 py-10 lg:px-10'>
-                    <div className='font-bold mb-5 text-center text-gray-500'>
-                      <h3 className='font-medium text-left'>
-                        Reset your password
-                      </h3>
+                    <div className='mb-5 text-gray-500'>
+                      <h3 className='font-medium'>Customer - Sign up</h3>
+                      <p className='text-gray-500'>Sign up to your account</p>
                     </div>
                     <Form>
+                      <Form.Item
+                        validateTrigger={['onBlur', 'onChange']}
+                        name='email'
+                        rules={[
+                          {
+                            validator: async (_, email) => {
+                              if (!email) {
+                                return Promise.reject(
+                                  new Error('Email is required')
+                                );
+                              }
+                              setEmail(email);
+                            },
+                          },
+                        ]}
+                      >
+                        <input
+                          className='bg-white border-0 placeholder-gray-400 px-3 py-3 rounded shadow text-gray-700 text-sm w-full focus:outline-none focus:ring'
+                          placeholder='Email'
+                          style={{ transition: 'all .15s ease' }}
+                          value={email}
+                          type='email'
+                          name='email'
+                        />
+                      </Form.Item>
+                      <Form.Item
+                        validateTrigger={['onBlur', 'onChange']}
+                        name='phoneNumber'
+                        rules={[
+                          {
+                            validator: async (_, phoneNumber) => {
+                              if (!phoneNumber) {
+                                return Promise.reject(
+                                  new Error('Phone number is required')
+                                );
+                              }
+                              setPhoneNumber(phoneNumber);
+                            },
+                          },
+                        ]}
+                      >
+                        <input
+                          className='bg-white border-0 placeholder-gray-400 px-3 py-3 rounded shadow text-gray-700 text-sm w-full focus:outline-none focus:ring'
+                          placeholder='PhoneNumber'
+                          style={{ transition: 'all .15s ease' }}
+                          value={phoneNumber}
+                          type='text'
+                          name='phoneNumber'
+                        />
+                      </Form.Item>
                       <div className='mb-3 relative w-full'>
                         <Form.Item
                           validateTrigger={['onBlur', 'onChange']}
@@ -156,16 +214,33 @@ export default function ResetPassword() {
                           )}
                         </div>
                       </div>
-                      <div className='mt-6 text-center'>
-                        <Button
-                          onClick={(e) => handleResetPassword(e)}
-                          className='mb-1 mr-1 px-6 py-3 shadow w-full'
-                          variant='primary'
+                      <Form.Item name='isAgreeTerm'>
+                        <Checkbox
+                          name='isAgreeTerm'
+                          onChange={(e) => setIsAgreeTerm(e.target.checked)}
                         >
-                          Submit
+                          I agree to the{' '}
+                          <a className='underline'>Term of Use</a> and{' '}
+                          <a className='underline'>Privacy Policy</a>
+                        </Checkbox>
+                      </Form.Item>
+                      <Form.Item>
+                        <Button
+                          htmlType='submit'
+                          disabled={
+                            password !== confirmPassword || !isAgreeTerm
+                          }
+                          onClick={handleSignup}
+                          className='bg-primary-500 text-white w-full'
+                        >
+                          Signup
                         </Button>
-                      </div>
+                      </Form.Item>
                     </Form>
+                    <p>
+                      Already have an account? &nbsp;
+                      <a className='underline'>Login</a>
+                    </p>
                   </div>
                 </div>
               </div>

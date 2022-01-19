@@ -28,10 +28,25 @@ function alertResetPasswordSuccess(
     addModal({ type: ModalType.ResetPasswordSuccess, title, msg })
   );
 }
+function alertMailOtp(
+  title: string | React.ReactElement,
+  msg: string | React.ReactElement,
+  handleClick: () => void
+) {
+  store.dispatch(
+    addModal({
+      type: ModalType.MailOtp,
+      title,
+      msg,
+      handleClick,
+    })
+  );
+}
 const ui = {
   alertDanger,
   alertSuccess,
   alertFailed,
   alertResetPasswordSuccess,
+  alertMailOtp,
 };
 export default ui;
