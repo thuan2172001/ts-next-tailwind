@@ -31,8 +31,7 @@ export default function setupAxios(axios: AxiosStatic, store: EnhancedStore) {
       }
 
       const { auth } = store.getState();
-
-      if (auth.id) {
+      if (auth?.id) {
         config.headers.Authorization = `${JSON.stringify(auth._certificate)}`;
         const getActionType = () => {
           return (

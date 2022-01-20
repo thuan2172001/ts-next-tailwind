@@ -4,6 +4,7 @@ import { Checkbox, Form, Input } from 'antd';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
+import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
 import { Signup } from '@/api/user-service';
@@ -18,7 +19,6 @@ export default function SignupPage() {
     const { publicKey, encryptedPrivateKey } =
       GenerateKeyPairAndEncrypt(password);
 
-    console.log(phoneNumber);
     Signup({
       mail: email,
       phone: phoneNumber,
@@ -41,6 +41,7 @@ export default function SignupPage() {
         );
       })
       .catch((err) => {
+        console.log(err);
         ui.alertFailed(err.message.toString());
       });
   };
@@ -60,7 +61,7 @@ export default function SignupPage() {
               <div className='px-4 w-full lg:w-6/12'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
                   <div className='flex-auto pt-8 px-4 py-10 lg:px-10'>
-                    <div className='mb-5 text-gray-500'>
+                    <div className='mb-5 text-center text-gray-500'>
                       <h3 className='font-medium'>Customer - Sign up</h3>
                       <p className='text-gray-500'>Sign up to your account</p>
                     </div>
@@ -163,8 +164,19 @@ export default function SignupPage() {
                       <Form.Item
                         name='isAgreeTerm'
                         style={{ marginBottom: '4px' }}
+                        valuePropName='checked'
+                        rules={[
+                          {
+                            validator: (_, value) =>
+                              value
+                                ? Promise.resolve()
+                                : Promise.reject(
+                                    new Error('Should accept agreement')
+                                  ),
+                          },
+                        ]}
                       >
-                        <Checkbox name='isAgreeTerm'>
+                        <Checkbox>
                           I agree to the{' '}
                           <a className='underline'>Term of Use</a> and{' '}
                           <a className='underline'>Privacy Policy</a>
@@ -177,9 +189,11 @@ export default function SignupPage() {
                         </Button>
                       </Form.Item>
                     </Form>
-                    <p>
+                    <p className='text-center'>
                       Already have an account? &nbsp;
-                      <a className='underline'>Login</a>
+                      <UnstyledLink href='/signin' className='underline'>
+                        Login
+                      </UnstyledLink>
                     </p>
                   </div>
                 </div>

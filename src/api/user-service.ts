@@ -16,10 +16,13 @@ export const Signup = (data: {
   publicKey: string;
   encryptedPrivateKey: string;
 }) => {
-  return axios.post(API_BASE_URL + '/users', { data });
+  return axios.post(API_BASE_URL + '/users', data);
 };
 
-export const ChangePassword = (data: any) => {
+export const ChangePassword = (data: {
+  publicKey: string;
+  encryptedPrivateKey: string;
+}) => {
   return axios.post(API_BASE_URL + '/change-password', data);
 };
 

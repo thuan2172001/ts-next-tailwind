@@ -18,6 +18,7 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PopUpItemsProps } from '@/config/interface';
+import { clearUserInfo } from '@/reducer/auth.slice';
 import ui from '@/utils/ui';
 
 import { PopOverButton } from '../buttons/PopOverButton';
@@ -50,7 +51,8 @@ export default function Header() {
   const router = useRouter();
   const handleLogout = (e: any) => {
     e.preventDefault();
-    dispatch({ type: 'DELETE' });
+    dispatch(clearUserInfo());
+    localStorage.clear();
     router.push('/signin');
   };
   const accountAction: PopUpItemsProps[] = [
