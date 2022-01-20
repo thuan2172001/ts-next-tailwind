@@ -12,6 +12,7 @@ export const SymmetricDecrypt = (
   key: string | CryptoJS.lib.WordArray
 ): string | null => {
   try {
+    console.log({ cipherText, key });
     const cipher: any = CryptoJS.AES.decrypt(cipherText, key);
     return cipher?.toString(CryptoJS.enc.Utf8);
   } catch (err: any) {
@@ -77,6 +78,7 @@ export const convertStringToByteArray = (base64_string: string): Uint8Array => {
 };
 
 export const GenerateCertificate = (certificateInfo: any, privateKey: any) => {
+  console.log({ privateKey });
   const keyPair = GenerateKeyPair(privateKey);
   const signature = SignMessage(privateKey, certificateInfo);
   return { signature, certificateInfo, publicKey: keyPair.publicKey };

@@ -27,9 +27,12 @@ export default function LoginPage() {
     const { username, password } = e;
     GetCredential(username)
       .then((response: any) => {
-        const { encryptedPrivateKey, data: userInfo } = response.data;
-        const _privateKey = SymmetricDecrypt(encryptedPrivateKey, password);
-        console.log(userInfo);
+        const userInfo = response.data;
+
+        const _privateKey = SymmetricDecrypt(
+          userInfo.encryptedPrivateKey,
+          password
+        );
         const message = {
           id: userInfo.id,
           timestamp: Math.floor(new Date().getTime()),
@@ -37,10 +40,14 @@ export default function LoginPage() {
         };
 
         const certificate: any = GenerateCertificate(message, _privateKey);
+        const newUserInfo = {
+          ...userInfo,
+          _privateKey,
+          _certificate: certificate,
+        };
+        dispatch(setUserInfo(newUserInfo));
 
-        console.log(userInfo, certificate);
-
-        Ping(certificate)
+        Ping()
           .then((res: { data: any }) => {
             console.log(res);
             router.push('/');

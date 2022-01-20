@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 import { Provider } from 'react-redux';
@@ -11,6 +12,10 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import ModalManager from '@/components/modal';
 
 import { store } from '@/reducer/store';
+import setupAxios from '@/utils/setupAxios';
+
+axios.create();
+setupAxios(axios, store);
 
 const persistor = persistStore(store);
 

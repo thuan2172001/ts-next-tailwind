@@ -6,27 +6,43 @@ import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
+import { Signup } from '@/api/user-service';
+import { GenerateKeyPairAndEncrypt } from '@/utils/auth-cryptography';
 import ui from '@/utils/ui';
 
 export default function SignupPage() {
   const handleSignup = (e: any) => {
     const { password, confirmPassword, email, isAgreeTerm, phoneNumber } = e;
     if (password !== confirmPassword || !isAgreeTerm) return;
-    console.log(phoneNumber);
 
-    ui.alertMailOtp(
-      `Check your email ${
-        email.slice(0, email.indexOf('@')).replace(/./g, '*') +
-        email.slice(email.indexOf('@'))
-      }`,
-      `Confirmation link has been sent to email address ${
-        email.slice(0, email.indexOf('@')).replace(/./g, '*') +
-        email.slice(email.indexOf('@'))
-      }. Please check your mailbox`,
-      () => {
-        console.log('a');
-      }
-    );
+    const { publicKey, encryptedPrivateKey } =
+      GenerateKeyPairAndEncrypt(password);
+
+    console.log(phoneNumber);
+    Signup({
+      mail: email,
+      phone: phoneNumber,
+      publicKey,
+      encryptedPrivateKey,
+    })
+      .then(() => {
+        ui.alertMailOtp(
+          `Check your email ${
+            email.slice(0, email.indexOf('@')).replace(/./g, '*') +
+            email.slice(email.indexOf('@'))
+          }`,
+          `Confirmation link has been sent to email address ${
+            email.slice(0, email.indexOf('@')).replace(/./g, '*') +
+            email.slice(email.indexOf('@'))
+          }. Please check your mailbox`,
+          () => {
+            console.log('a');
+          }
+        );
+      })
+      .catch((err) => {
+        ui.alertFailed(err.message.toString());
+      });
   };
 
   const onFinishFailed = (errorInfo: any) => {
