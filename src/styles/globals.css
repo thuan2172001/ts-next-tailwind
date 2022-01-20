@@ -277,3 +277,11 @@
   width: 80px;
   height: 80px;
 }
+
+.ant-form-item-control-input,
+.ant-input-affix-wrapper,
+.ant-input,
+.ant-input-password {
+  border-radius: 6px;
+  border-color: gray;
+}

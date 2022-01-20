@@ -75,3 +75,9 @@ export const convertArrayBufferToString = (
 export const convertStringToByteArray = (base64_string: string): Uint8Array => {
   return Uint8Array.from(atob(base64_string), (c) => c.charCodeAt(0));
 };
+
+export const GenerateCertificate = (certificateInfo: any, privateKey: any) => {
+  const keyPair = GenerateKeyPair(privateKey);
+  const signature = SignMessage(privateKey, certificateInfo);
+  return { signature, certificateInfo, publicKey: keyPair.publicKey };
+};
