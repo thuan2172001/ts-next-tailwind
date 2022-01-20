@@ -79,7 +79,7 @@ export default function Header() {
                   color: 'white',
                 }}
               >
-                Mazada
+                Handyman
               </span>
             </span>
           </div>
