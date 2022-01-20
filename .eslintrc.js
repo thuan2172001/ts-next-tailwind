@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 module.exports = {
   env: {
     browser: true,
@@ -16,7 +17,8 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-console': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@next/next/no-document-import-in-page': 'off',
     // Sort
     'simple-import-sort/exports': 'warn',
     'simple-import-sort/imports': [

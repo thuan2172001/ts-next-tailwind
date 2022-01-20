@@ -138,6 +138,49 @@ export default function ModalManager() {
             </div>
           </Modal>
         );
+      case ModalType.ForgotPasswordSuccess:
+        return (
+          <Modal
+            visible={true}
+            closable={false}
+            centered={true}
+            bodyStyle={{ padding: '0px' }}
+            footer={null}
+          >
+            <div key={i.id} className='w-full md:w-[500px]'>
+              <div className='w-full md:w-[500px]'>
+                <div className='py-8'>
+                  <img
+                    src='/images/icons/success-icon.png'
+                    className='h-12 mx-auto w-12'
+                    alt='success'
+                  />
+                </div>
+                <div className='text-black text-center'>
+                  <div className='font-extrabold text-black text-xl'>
+                    {i.title} {i.email}
+                  </div>
+                  <div className='mt-1 text-sm'>
+                    {`Confirmation link has been sent to email address ${i.email}.`}
+                    <br />
+                    {`Please check your mailbox`}
+                  </div>
+                </div>
+                <div className='flex justify-center mx-auto py-8 text-center w-1/3'>
+                  <Button
+                    className='w-full'
+                    variant='primary'
+                    onClick={() => {
+                      closeModal(i.id);
+                    }}
+                  >
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Modal>
+        );
       case ModalType.Failed:
         return (
           <Modal

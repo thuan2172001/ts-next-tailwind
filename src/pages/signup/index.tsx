@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
-import { Form, Input } from 'antd';
+import { Checkbox, Form, Input } from 'antd';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
-import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
 import { setUserInfo } from '@/reducer/auth.slice';
@@ -20,10 +19,10 @@ export default function LoginPage() {
     dispatch(setUserInfo({ username: 'thuan2172001' }));
     router.push('/');
   };
-
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
+
   return (
     <Layout hiddenHeader={true} hiddenFooter={true}>
       <Seo templateTitle='Login' />
@@ -36,16 +35,16 @@ export default function LoginPage() {
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
                   <div className='flex-auto pt-5 px-4 py-10 lg:px-10'>
                     <div className='font-bold mb-3 text-center text-gray-500'>
-                      <h1>Login</h1>
-                      <small>Sign in to your account</small>
+                      <h1>Sign up</h1>
+                      <small>Create your account</small>
                     </div>
                     <Form
                       name='basic'
                       labelCol={{
-                        span: 16,
+                        span: 8,
                       }}
                       wrapperCol={{
-                        span: 24,
+                        span: 16,
                       }}
                       initialValues={{
                         remember: true,
@@ -54,7 +53,7 @@ export default function LoginPage() {
                       onFinishFailed={onFinishFailed}
                       autoComplete='off'
                       layout='vertical'
-                      className='mx-auto w-8/12'
+                      className='mx-auto w-11/12'
                     >
                       <Form.Item
                         label='Username'
@@ -83,36 +82,53 @@ export default function LoginPage() {
                       </Form.Item>
 
                       <Form.Item
+                        name='remember'
+                        valuePropName='checked'
                         wrapperCol={{
-                          offset: 0,
-                          span: 24,
+                          offset: 8,
+                          span: 16,
+                        }}
+                        className='w-4/12'
+                      >
+                        <Checkbox className='m-0'>Remember me</Checkbox>
+                      </Form.Item>
+
+                      <Form.Item
+                        wrapperCol={{
+                          offset: 8,
+                          span: 16,
                         }}
                       >
                         <Button
                           className='mx-auto w-full'
                           variant='primary'
+                          color='red'
                           type='submit'
                         >
-                          Sign in
+                          Sign up
                         </Button>
                       </Form.Item>
                     </Form>
-                    <div className='mx-auto w-8/12'>
-                      <UnstyledLink
-                        className='text-xs hover:text-sky-600'
-                        href='/forgot-password'
-                      >
-                        Forgot your password?
-                      </UnstyledLink>
-                    </div>
-                    <div className='mx-auto w-8/12'>
-                      <UnstyledLink
-                        className='text-xs hover:text-sky-600'
-                        href='/signup'
-                      >
-                        Dont have account ? Register now !
-                      </UnstyledLink>
-                    </div>
+                  </div>
+                </div>
+                <div className='flex flex-wrap mt-6'>
+                  <div className='w-1/2'>
+                    <a
+                      href='#pablo'
+                      onClick={(e) => e.preventDefault()}
+                      className='text-gray-300'
+                    >
+                      <small>Forgot password?</small>
+                    </a>
+                  </div>
+                  <div className='text-right w-1/2'>
+                    <a
+                      href='#pablo'
+                      onClick={(e) => e.preventDefault()}
+                      className='text-gray-300'
+                    >
+                      <small>Create new account</small>
+                    </a>
                   </div>
                 </div>
               </div>

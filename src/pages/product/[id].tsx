@@ -100,11 +100,7 @@ export default function ProductPage() {
                   <Button className='col-span-4' color='blue'>
                     Chọn mua
                   </Button>
-                  <Button
-                    variant='outline'
-                    color='blue'
-                    className='col-span-4 sm:text-sm'
-                  >
+                  <Button variant='outline' className='col-span-4 sm:text-sm'>
                     Chat{' '}
                     <span className='hidden md:inline-block'>
                       với người bán
