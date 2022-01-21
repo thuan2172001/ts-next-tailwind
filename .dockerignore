@@ -1,0 +1,9 @@
+.husky
+.vscode
+.gitignore
+.prettierignore
+README.md
+node_modules
+Dockerfile
+.dockerignore
+deploy

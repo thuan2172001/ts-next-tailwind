@@ -30,3 +30,4 @@ yarn-error.log*
 # next-sitemap
 robots.txt
 sitemap.xml
+.env.production
