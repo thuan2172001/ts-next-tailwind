@@ -174,14 +174,15 @@ export default function Button({
       disabled={disabled}
       className={clsx(
         className,
-        'font-semibold items-center px-4 py-2 rounded',
+        'w-full',
+        'font-semibold items-center px-4 py-3 rounded-xl',
         'focus:outline-none',
         'shadow-sm',
         'duration-75 transition-colors',
         overrideClassNames,
         'disabled:cursor-not-allowed',
         isLoading &&
-        'relative !text-transparent hover:!text-transparent !cursor-wait !transition-none',
+          'relative !text-transparent hover:!text-transparent !cursor-wait !transition-none',
         `${mainColor}`
       )}
     >

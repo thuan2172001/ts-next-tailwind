@@ -21,6 +21,7 @@ import { PopUpItemsProps } from '@/config/interface';
 import { clearUserInfo } from '@/reducer/auth.slice';
 import ui from '@/utils/ui';
 
+import Button from '../buttons/Button';
 import { PopOverButton } from '../buttons/PopOverButton';
 import UnstyledLink from '../links/UnstyledLink';
 
@@ -60,29 +61,16 @@ export default function Header() {
     { name: 'Logout', onClick: handleLogout, icon: LogoutIcon },
   ];
   return (
-    <Popover className='bg-primary relative sticky top-0 z-50'>
+    <Popover className='main-header overflow-hidden relative top-0'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
-        <div className='border-gray-100 grid grid-cols-8 items-center justify-between py-1 md:space-x-10'>
+        <div className='border-gray-100 flex items-center justify-between justify-between py-1 md:space-x-10'>
           <div className='col-span-2 flex lg:col-span-1'>
             <span
               className='cursor-pointer flex'
               onClick={() => router.push('/')}
             >
               <span className='sr-only'>Workflow</span>
-              <img
-                className='h-16 w-auto sm:h-16'
-                src='/images/logo.svg'
-                alt=''
-              />
-              <span
-                style={{
-                  alignSelf: 'center',
-                  fontSize: '22px',
-                  color: 'white',
-                }}
-              >
-                Handyman
-              </span>
+              <img className='' src='/images/logo-text.svg' alt='' />
             </span>
           </div>
           <div className='-mr-2 -my-2 col-start-9 md:hidden'>
@@ -91,20 +79,32 @@ export default function Header() {
               <MenuIcon className='h-6 w-6' aria-hidden='true' />
             </Popover.Button>
           </div>
+
           {!userInfo ? (
-            <div className='hidden items-center justify-end md:col-start-9 md:flex md:flex-1 lg:w-0'>
+            <div className='flex items-center py-4'>
+              <UnstyledLink
+                href='/explore'
+                className='font-bold px-6 text-base text-black whitespace-nowrap'
+              >
+                Explore
+              </UnstyledLink>
+
               <UnstyledLink
                 href='/signin'
-                className='px-2 text-base text-white whitespace-nowrap hover:text-gray-900'
+                className='font-bold px-6 text-base text-black whitespace-nowrap'
               >
-                Sign in
+                Login
               </UnstyledLink>
-              <UnstyledLink
-                href='/signup'
-                className='ml-8 px-2 text-base text-white whitespace-nowrap hover:text-gray-900'
-              >
-                Sign up
-              </UnstyledLink>
+
+              <div className='mx-4 w-[144px]'>
+                <Button color='blue' variant='outline' className='w-full'>
+                  Sign up
+                </Button>
+              </div>
+
+              <div className='w-[144px]'>
+                <Button color='blue'>Join as a pro</Button>
+              </div>
             </div>
           ) : (
             <div className='col-span-6 hidden items-center justify-end md:grid md:grid-cols-8 lg:col-span-7'>

@@ -1,15 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
-import Carousel from '@/components/Carousel';
 import Layout from '@/components/layout/Layout';
 import Product from '@/components/Product';
 import Seo from '@/components/Seo';
 
 import { ProductProps } from '@/config/interface';
 
-import { items, leftItem, products, subHeader } from '../config/mockdata';
+import { products } from '../config/mockdata';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
@@ -22,29 +22,24 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 export default function HomePage() {
   return (
     <Layout>
-      <div className='container mx-auto px-6 py-3 sub-header'>
-        <div className='-mx-3 flex overflow-x-auto scroll-hidden'>
-          {subHeader.map((item, i: number) => {
-            return (
-              <a
-                key={item.title + i}
-                className='flex-none leading-5 px-3 text-gray-700 text-sm hover:text-blue-600'
-              >
-                {item.title}
-              </a>
-            );
-          })}
-        </div>
-      </div>
       <Seo templateTitle='Home' />
-      <main className='bg-gray-100'>
+      <main className=''>
         <section className='bg-white layout'>
-          <div className='gap-4 grid grid-flow-col h-min'>
-            <Carousel className='col-span-5' items={items} />
-            <Carousel className='col-span-3' items={leftItem} />
+          <div className='grid grid-cols-2'>
+            <div className='items-center justify-center my-auto'>
+              <div className='items-center justify-center text-7xl text-bold w-11/12'>
+                <div>Make your</div> dream home 🏠 a reality.
+              </div>
+            </div>
+            <div>
+              <img src='/images/default-image.webp' alt='default' />
+            </div>
           </div>
+
           <div>
-            <div className='ml-4 mt-4'>Gợi ý hôm nay</div>
+            <div className='font-medium ml-4 mt-4 text-3xl text-black'>
+              Profession Near You
+            </div>
             <div className='bg-white'>
               <div className='max-w-2xl mx-auto px-4 py-4 sm:pb-24 sm:px-6 lg:max-w-7xl lg:px-8'>
                 <h2 className='sr-only'>Products</h2>
