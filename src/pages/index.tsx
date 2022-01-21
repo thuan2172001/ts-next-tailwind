@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import { Input } from 'antd';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import Product from '@/components/Product';
 import Seo from '@/components/Seo';
@@ -30,6 +32,24 @@ export default function HomePage() {
               <div className='items-center justify-center text-7xl text-bold w-11/12'>
                 <div>Make your</div> dream home 🏠 a reality.
               </div>
+              <div className='flex gap-4 mt-6 w-full'>
+                <div className='md:w-2/3'>
+                  <Input
+                    className='py-3'
+                    placeholder='What’s on your to-do list'
+                  />
+                </div>
+                <div className='md:w-1/6'>
+                  <Button
+                    type='submit'
+                    className='py-3.5'
+                    color='blue'
+                    variant='linear'
+                  >
+                    Search
+                  </Button>
+                </div>
+              </div>
             </div>
             <div>
               <img src='/images/default-image.webp' alt='default' />
@@ -38,10 +58,10 @@ export default function HomePage() {
 
           <div>
             <div className='flex justify-between mt-10'>
-              <div className='font-medium text-3xl text-black'>
+              <div className='font-bold text-3xl text-black'>
                 Professionals Near You
               </div>
-              <div className='text-primary-400'>View all</div>
+              <div className='cursor-pointer text-primary-400'>View all</div>
             </div>
 
             <div className='bg-white'>
@@ -53,6 +73,21 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className='items-center mb-20 mx-auto rounded-lg text-center'>
+              <Button
+                color='blue'
+                variant='primary'
+                className='h-[48px] mb-6 w-[149px]'
+              >
+                Learn more
+              </Button>
+              <img
+                src='/images/banner/download-banner.png'
+                className='mx-0 primary-box-shadow px-0 w-full'
+                alt='banner'
+              />
             </div>
           </div>
         </section>

@@ -142,6 +142,7 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    isShowDetail: true,
   },
   {
     id: 2,
@@ -152,6 +153,7 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Olive drab green insulated bottle with flared screw lid and flat top.',
+    isShowDetail: true,
   },
   {
     id: 3,
@@ -162,6 +164,7 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Person using a pen to cross a task off a productivity paper card.',
+    isShowDetail: true,
   },
   {
     id: 4,
@@ -172,6 +175,7 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    isShowDetail: true,
   },
   {
     id: 5,
@@ -182,6 +186,7 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    isShowDetail: true,
   },
   {
     id: 6,
@@ -192,6 +197,7 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    isShowDetail: true,
   },
   {
     id: 7,
@@ -202,6 +208,7 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    isShowDetail: true,
   },
   {
     id: 8,
@@ -212,5 +219,6 @@ export const products = [
     imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    isShowDetail: true,
   },
 ];

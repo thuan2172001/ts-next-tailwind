@@ -24,7 +24,7 @@ export type ProductProps = {
   href?: string;
   service?: string;
   name?: string;
-  price?: number | string;
+  isShowDetail?: boolean;
 };
 
 export enum ModalType {

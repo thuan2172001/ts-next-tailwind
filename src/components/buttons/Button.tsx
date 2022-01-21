@@ -5,6 +5,7 @@ import { ImSpinner2 } from 'react-icons/im';
 enum ButtonVariant {
   'primary',
   'outline',
+  'linear',
 }
 
 enum ButtonColor {
@@ -159,6 +160,12 @@ export default function Button({
               `disabled:bg-yellow-600 disabled:hover:bg-yellow-600`
             );
             break;
+        }
+        break;
+      case 'linear':
+        switch (color) {
+          case 'blue':
+            overrideClassNames.push(`text-white bg-blue-linear`);
         }
         break;
       default:

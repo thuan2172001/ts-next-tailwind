@@ -175,7 +175,7 @@
 .truncated-p {
   overflow: hidden;
   display: block;
-  width: 50px;
+  width: 100 px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -255,6 +255,10 @@
   color: rgb(253, 216, 54);
 }
 
+.icon-orange {
+  color: #ff8b36;
+}
+
 .old-price {
   color: #929292;
   text-decoration: line-through;
@@ -294,4 +298,17 @@
   position: fixed;
   z-index: 99;
   top: 0;
+}
+
+.bg-blue-linear {
+  background: linear-gradient(
+    264.33deg,
+    #14ee97 -11.99%,
+    #5e45f3 44.23%,
+    #9434ed 103.19%
+  );
+}
+
+.primary-box-shadow {
+  box-shadow: 0px 12px 48px -12px rgba(48, 69, 255, 0.12);
 }

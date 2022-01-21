@@ -18,7 +18,7 @@ export default function Product({
     <a
       key={product.id}
       href={`/product/${product.id}`}
-      className={clsx(className, 'group')}
+      className={clsx(className, 'group p-2 primary-box-shadow rounded-lg')}
       style={style}
     >
       <img
@@ -34,23 +34,25 @@ export default function Product({
         />
         <span className='mt-1'>{product.service}</span>
       </div>
-      <div className='flex font-medium justify-between mt-1 text-gray-900 text-lg'>
-        <div className='truncated-p'>{product.name}</div>
-        <div className='flex'>
-          <UserIcon className='h-4 mr-1 mt-1.5 w-4' />
-          <div className='mr-1'>124</div>
-          {[0, 1, 2, 3, 4].map((rating) => (
-            <StarIcon
-              key={rating}
-              className={clsx(
-                4 > rating ? 'icon-yellow' : 'text-gray-200',
-                'flex-shrink-0 h-5 mt-1 w-5'
-              )}
-              aria-hidden='true'
-            />
-          ))}
+      {product.isShowDetail && (
+        <div className='flex font-medium justify-between mt-1 text-gray-900 text-sm'>
+          <div className='truncated-p'>{product.name}</div>
+          <div className='flex'>
+            <UserIcon className='h-4 mr-1 mt-1 text-gray-400 w-4' />
+            <div className='mr-1 mt-0.5'>124</div>
+            {[0, 1, 2, 3, 4].map((rating) => (
+              <StarIcon
+                key={rating}
+                className={clsx(
+                  4 > rating ? 'icon-orange' : 'text-gray-200',
+                  'flex-shrink-0 h-5 mt-0.5 w-5'
+                )}
+                aria-hidden='true'
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </a>
   );
 }
