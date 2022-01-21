@@ -4,7 +4,6 @@ import { Checkbox, Form, Input } from 'antd';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
-import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
 import { Signup } from '@/api/user-service';
@@ -55,15 +54,18 @@ export default function SignupPage() {
       <Seo templateTitle='Reset Password' />
       <main>
         <section className='absolute h-full w-full'>
-          <div className='absolute bg-gray-900 h-full top-0 w-full'></div>
+          <div className='absolute h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
-              <div className='px-4 w-full lg:w-6/12'>
+              <div className='w-full lg:w-[400px]'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
-                  <div className='flex-auto pt-8 px-4 py-10 lg:px-10'>
+                  <div className='flex-auto p-6'>
                     <div className='mb-5 text-center text-gray-500'>
-                      <h3 className='font-medium'>Customer - Sign up</h3>
-                      <p className='text-gray-500'>Sign up to your account</p>
+                      <h3 className='font-bold leading-8 text-2xl'>{`Let's get started`}</h3>
+                      <p className='font-medium leading-6 text-[#999] text-base'>
+                        AnygoNow makes it easy todo <br />
+                        more for your home
+                      </p>
                     </div>
 
                     <Form
@@ -76,9 +78,11 @@ export default function SignupPage() {
                         password: '',
                       }}
                       layout='vertical'
-                      className='mx-auto w-8/12'
+                      className='mx-auto w-full'
                     >
-                      <div>Email</div>
+                      <div className='font-medium leading-4 mb-[4px] pl-5 text-sm'>
+                        Email address
+                      </div>
                       <Form.Item
                         validateTrigger={['onBlur', 'onChange']}
                         style={{ marginBottom: '4px' }}
@@ -94,10 +98,15 @@ export default function SignupPage() {
                           },
                         ]}
                       >
-                        <Input />
+                        <Input
+                          className='font-medium leading-4 px-5 py-4 rounded-xl text-sm'
+                          placeholder='name@email.com'
+                        />
                       </Form.Item>
 
-                      <div>Phone number</div>
+                      <div className='font-medium leading-4 mb-[4px] mt-4 pl-5 text-sm'>
+                        Phone number
+                      </div>
                       <Form.Item
                         style={{ marginBottom: '4px' }}
                         validateTrigger={['onBlur', 'onChange']}
@@ -114,10 +123,15 @@ export default function SignupPage() {
                           },
                         ]}
                       >
-                        <Input />
+                        <Input
+                          className='font-medium leading-4 px-5 py-4 rounded-xl text-sm'
+                          placeholder='000-111-222-333'
+                        />
                       </Form.Item>
 
-                      <div>Password</div>
+                      <div className='font-medium leading-4 mb-[4px] mt-4 pl-5 text-sm'>
+                        Password
+                      </div>
                       <Form.Item
                         validateTrigger={['onBlur', 'onChange']}
                         style={{ marginBottom: '4px' }}
@@ -129,12 +143,17 @@ export default function SignupPage() {
                           },
                         ]}
                       >
-                        <Input.Password className='py-2' />
+                        <Input.Password
+                          className='font-medium leading-4 px-5 py-4 rounded-xl signup-input-password text-sm'
+                          placeholder='Your password'
+                        />
                       </Form.Item>
 
-                      <div>Confirm password</div>
+                      <div className='font-medium leading-4 mb-[4px] mt-4 pl-5 text-sm'>
+                        Confirm your password
+                      </div>
                       <Form.Item
-                        style={{ marginBottom: '4px' }}
+                        className='mb-0'
                         validateTrigger={['onBlur', 'onChange']}
                         name='confirmPassword'
                         dependencies={['password']}
@@ -158,12 +177,15 @@ export default function SignupPage() {
                           }),
                         ]}
                       >
-                        <Input.Password className='py-2' />
+                        <Input.Password
+                          className='font-medium leading-4 px-5 py-4 rounded-xl signup-input-password text-sm'
+                          placeholder='Your password'
+                        />
                       </Form.Item>
 
                       <Form.Item
+                        className='mt-6'
                         name='isAgreeTerm'
-                        style={{ marginBottom: '4px' }}
                         valuePropName='checked'
                         rules={[
                           {
@@ -176,25 +198,38 @@ export default function SignupPage() {
                           },
                         ]}
                       >
-                        <Checkbox>
+                        <Checkbox className='font-medium text-sm'>
                           I agree to the{' '}
-                          <a className='underline'>Term of Use</a> and{' '}
-                          <a className='underline'>Privacy Policy</a>
+                          <a className='text-primary underline'>Term of Use</a>{' '}
+                          and{' '}
+                          <a className='text-primary underline'>
+                            Privacy Policy
+                          </a>
                         </Checkbox>
                       </Form.Item>
 
+                      <Form.Item className='mb-4'>
+                        <Button
+                          type='submit'
+                          className='bg-primary font-bold px-8 py-4 text-base w-full'
+                        >
+                          Next
+                        </Button>
+                      </Form.Item>
                       <Form.Item>
-                        <Button type='submit' color='blue' className='w-full'>
-                          Sign up
+                        <Button
+                          className='bg-primary-outline font-bold leading-4 px-8 py-4 text-base text-base text-primary w-full'
+                          variant='outline'
+                        >
+                          <img
+                            src='/images/icons/left-circle-arrow.png'
+                            alt='default'
+                            className='inline mr-2'
+                          />
+                          I already have an account
                         </Button>
                       </Form.Item>
                     </Form>
-                    <p className='text-center'>
-                      Already have an account? &nbsp;
-                      <UnstyledLink href='/signin' className='underline'>
-                        Login
-                      </UnstyledLink>
-                    </p>
                   </div>
                 </div>
               </div>

@@ -243,12 +243,33 @@
   border: 1px solid rgb(236, 236, 236);
 }
 
+.signup-input-password input {
+  line-height: 1rem !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+}
+
 .background-image {
   background: url('/images/logo.svg');
 }
 
 .bg-primary {
-  background: rgb(26, 148, 255);
+  background: #5e45f3 !important;
+}
+button.bg-primary:hover {
+  background: #5e45f3 !important;
+}
+
+.bg-primary-outline {
+  border-color: #5e45f3 !important;
+}
+
+button.bg-primary-outline:hover {
+  background-color: #5e45f3 !important;
+}
+
+.text-primary {
+  color: #5e45f3 !important;
 }
 
 .icon-yellow {
