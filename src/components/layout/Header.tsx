@@ -54,14 +54,13 @@ export default function Header() {
     e.preventDefault();
     dispatch(clearUserInfo());
     localStorage.clear();
-    router.push('/signin');
   };
   const accountAction: PopUpItemsProps[] = [
     { name: 'Help Center', onClick: () => {}, icon: SupportIcon },
     { name: 'Logout', onClick: handleLogout, icon: LogoutIcon },
   ];
   return (
-    <Popover className='main-header overflow-hidden relative top-0'>
+    <Popover className='main-header relative top-0'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
         <div className='border-gray-100 flex items-center justify-between justify-between py-1 md:space-x-10'>
           <div className='col-span-2 flex lg:col-span-1'>
@@ -74,7 +73,7 @@ export default function Header() {
             </span>
           </div>
           <div className='-mr-2 -my-2 col-start-9 md:hidden'>
-            <Popover.Button className='inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-inset'>
+            <Popover.Button className='inline-flex items-center justify-center p-2 rounded-md text-black hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-inset'>
               <span className='sr-only'>Open menu</span>
               <MenuIcon className='h-6 w-6' aria-hidden='true' />
             </Popover.Button>
@@ -97,7 +96,12 @@ export default function Header() {
               </UnstyledLink>
 
               <div className='mx-4 w-[144px]'>
-                <Button color='blue' variant='outline' className='w-full'>
+                <Button
+                  color='blue'
+                  variant='outline'
+                  className='w-full'
+                  onClick={() => router.push('/signup')}
+                >
                   Sign up
                 </Button>
               </div>
@@ -137,22 +141,21 @@ export default function Header() {
                 </button>
               </div>
               <PopOverButton
-                className='float-right mt-3 text-white md:col-span-2 lg:col-span-1'
+                className='float-right mt-3 text-black md:col-span-2 lg:col-span-1'
                 size='sm'
                 items={account}
                 title={
                   <>
-                    <UserCircleIcon className='h-7 mr-1 text-white w-7 md:h-6 md:w-6' />
-                    <span className='text-sm text-white'>
-                      {userInfo?.username}
+                    <UserCircleIcon className='h-7 mr-1 text-black w-7 md:h-6 md:w-6' />
+                    <span className='text-black text-sm truncated-p'>
+                      {userInfo?.identifier}
                     </span>
                   </>
                 }
-                // showDropIcon={false}
                 callsToAction={accountAction}
               />
               <span
-                className='cursor-pointer flex ml-3 text-white md:col-span-2 lg:col-span-1'
+                className='cursor-pointer flex ml-3 text-black md:col-span-2 lg:col-span-1'
                 onClick={() => {
                   ui.alertDanger('Successfully test', 'Xin chao cac ban');
                   ui.alertSuccess('Successfully test', 'Xin chao cac ban');
@@ -254,12 +257,12 @@ export default function Header() {
               </div>
               {!userInfo ? (
                 <div>
-                  <a
-                    href='#'
-                    className='bg-indigo-600 border border-transparent flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
+                  <UnstyledLink
+                    href='/signup'
+                    className='bg-indigo-600 border border-transparent flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-black w-full hover:bg-indigo-700'
                   >
                     Sign up
-                  </a>
+                  </UnstyledLink>
                   <p className='mt-6 text-base text-center text-gray-500'>
                     Existing customer?
                     <a
@@ -274,7 +277,7 @@ export default function Header() {
                 <div>
                   <span
                     onClick={(e) => handleLogout(e)}
-                    className='bg-indigo-600 border border-transparent flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-white w-full hover:bg-indigo-700'
+                    className='bg-indigo-600 border border-transparent flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-black w-full hover:bg-indigo-700'
                   >
                     Logout
                   </span>

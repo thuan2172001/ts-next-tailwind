@@ -135,81 +135,81 @@ export const subHeader = [
 export const products = [
   {
     id: 1,
+    service: 'Foam',
     name: 'Earthen Bottle',
     href: '#',
     price: '$48',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
   },
   {
     id: 2,
+    service: 'Foam',
     name: 'Nomad Tumbler',
     href: '#',
     price: '$35',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Olive drab green insulated bottle with flared screw lid and flat top.',
   },
   {
     id: 3,
+    service: 'Foam',
     name: 'Focus Paper Refill',
     href: '#',
     price: '$89',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Person using a pen to cross a task off a productivity paper card.',
   },
   {
     id: 4,
+    service: 'Foam',
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
     id: 5,
+    service: 'Foam',
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
     id: 6,
+    service: 'Foam',
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
     id: 7,
+    service: 'Foam',
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc:
-      'https://i.pinimg.com/736x/b7/7b/cf/b77bcf9bd5e462c86c549a1b7e36bd30.jpg',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   {
     id: 8,
+    service: 'Foam',
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc:
-      'https://salt.tikicdn.com/cache/200x200/ts/product/4e/7b/7b/71d50dcd0e3ba0a6e80c74d3660c2ddc.jpg.webp',
+    imageSrc: '/images/example/1.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },

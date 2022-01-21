@@ -25,7 +25,7 @@ export default function LoginPage() {
 
   const handleSubmit = (e: any) => {
     const { username, password } = e;
-    GetCredential(username)
+    GetCredential({ identifier: username })
       .then((response: any) => {
         const userInfo = response.data;
 
@@ -44,6 +44,7 @@ export default function LoginPage() {
           ...userInfo,
           _privateKey,
           _certificate: certificate,
+          identifier: username,
         };
         dispatch(setUserInfo(newUserInfo));
 
@@ -71,12 +72,12 @@ export default function LoginPage() {
       <Seo templateTitle='Login' />
       <main>
         <section className='absolute h-full w-full'>
-          <div className='absolute background-image bg-gray-900 h-full top-0 w-full'></div>
+          <div className='absolute bg-gray-900 h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
-              <div className='px-4 w-full md:lg:w-5/12'>
+              <div className='px-4 w-full sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-6/12'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
-                  <div className='flex-auto pt-5 px-4 py-10 lg:px-10'>
+                  <div className='flex-auto pt-5 py-10 xl:py-12'>
                     <div className='font-bold mb-3 mt-2 text-center text-gray-500'>
                       <h2>Login</h2>
                       <small>Sign in to your account</small>

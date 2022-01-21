@@ -2,8 +2,8 @@ import axios from 'axios';
 
 import { API_BASE_URL } from '@/config/constant';
 
-export function GetCredential(username: string) {
-  return axios.post(API_BASE_URL + '/auth/credential', { data: username });
+export function GetCredential(data: { identifier: string }) {
+  return axios.post(API_BASE_URL + '/auth/credential', { data });
 }
 
 export const Ping = () => {
@@ -16,14 +16,14 @@ export const Signup = (data: {
   publicKey: string;
   encryptedPrivateKey: string;
 }) => {
-  return axios.post(API_BASE_URL + '/users', data);
+  return axios.post(API_BASE_URL + '/users', { data });
 };
 
 export const ChangePassword = (data: {
   publicKey: string;
   encryptedPrivateKey: string;
 }) => {
-  return axios.post(API_BASE_URL + '/change-password', data);
+  return axios.post(API_BASE_URL + '/change-password', { data });
 };
 
 export const ResetChangePassword = (data: {
@@ -32,5 +32,9 @@ export const ResetChangePassword = (data: {
   publicKey: string;
   encryptedPrivateKey: string;
 }) => {
-  return axios.post(API_BASE_URL + '/reset-password', { data: data });
+  return axios.post(API_BASE_URL + '/reset-password', { data });
+};
+
+export const VerifyOtp = (data: { otp: string; otpId: string }) => {
+  return axios.post(API_BASE_URL + '/auth/otp', { data });
 };

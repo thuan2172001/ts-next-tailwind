@@ -22,6 +22,7 @@ export type ProductProps = {
   imageAlt?: string;
   id?: string | number;
   href?: string;
+  service?: string;
   name?: string;
   price?: number | string;
 };

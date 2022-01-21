@@ -55,7 +55,7 @@ export default function SignupPage() {
       <Seo templateTitle='Reset Password' />
       <main>
         <section className='absolute h-full w-full'>
-          <div className='absolute background-image bg-gray-900 h-full top-0 w-full'></div>
+          <div className='absolute bg-gray-900 h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
               <div className='px-4 w-full lg:w-6/12'>

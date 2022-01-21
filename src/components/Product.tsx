@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { StarIcon, UserIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
 import * as React from 'react';
 
@@ -20,15 +21,36 @@ export default function Product({
       className={clsx(className, 'group')}
       style={style}
     >
-      <div className='aspect-h-1 aspect-w-1 bg-gray-200 overflow-hidden rounded-lg w-full xl:aspect-h-8 xl:aspect-w-7'>
+      <img
+        src={product.imageSrc}
+        alt={product.imageAlt}
+        className='h-[132px] w-[270px] group-hover:opacity-75'
+      />
+      <div className='flex font-bold mt-4 text-black text-xl'>
         <img
-          src={product.imageSrc}
-          alt={product.imageAlt}
-          className='h-full object-center object-cover w-full group-hover:opacity-75'
+          src='/images/service-icon/foam-service.svg'
+          alt='foam'
+          className='mr-3'
         />
+        <span className='mt-1'>{product.service}</span>
       </div>
-      <h3 className='mt-4 text-gray-700 text-sm'>{product.name}</h3>
-      <p className='font-medium mt-1 text-gray-900 text-lg'>{product.price}</p>
+      <div className='flex font-medium justify-between mt-1 text-gray-900 text-lg'>
+        <div className='truncated-p'>{product.name}</div>
+        <div className='flex'>
+          <UserIcon className='h-4 mr-1 mt-1.5 w-4' />
+          <div className='mr-1'>124</div>
+          {[0, 1, 2, 3, 4].map((rating) => (
+            <StarIcon
+              key={rating}
+              className={clsx(
+                4 > rating ? 'icon-yellow' : 'text-gray-200',
+                'flex-shrink-0 h-5 mt-1 w-5'
+              )}
+              aria-hidden='true'
+            />
+          ))}
+        </div>
+      </div>
     </a>
   );
 }
