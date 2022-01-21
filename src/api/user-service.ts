@@ -23,7 +23,7 @@ export const ChangePassword = (data: {
   publicKey: string;
   encryptedPrivateKey: string;
 }) => {
-  return axios.post(API_BASE_URL + '/change-password', { data });
+  return axios.post(API_BASE_URL + '/auth/password', { data });
 };
 
 export const ResetChangePassword = (data: {
