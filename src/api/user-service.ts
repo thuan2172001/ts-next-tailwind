@@ -38,3 +38,7 @@ export const ResetChangePassword = (data: {
 export const VerifyOtp = (data: { otp: string; otpId: string }) => {
   return axios.post(API_BASE_URL + '/auth/otp', { data });
 };
+
+export const ForgotPassword = (data: { mail: string }) => {
+  return axios.post(API_BASE_URL + '/auth/forgot-password', { data });
+};

@@ -7,27 +7,30 @@ import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
+import { ForgotPassword } from '@/api/user-service';
 import ui from '@/utils/ui';
 
-export default function ResetPassword() {
+export default function ForgotPasswordPage() {
   const [disableBtn, setDisableBtn] = useState(false);
   const handleForgotPassword = (value: any) => {
     setDisableBtn(true);
-    // e.preventDefault();
-    console.log('e', value);
-    const ind: number = value.email.indexOf('@');
-    const email: string = value.email.replace(
+    const { email } = value;
+    const ind: number = email.indexOf('@');
+    const formattedEmail: string = email.replace(
       value.email.slice(0, ind - 3),
       '*******'
     );
-    console.log(email.replace(email.slice(0, ind - 3), '*******'));
-    console.log(ind);
-    ui.alertForgotPasswordSuccess(
-      `Check your email`,
-      email,
-      'Xin chao cac ban'
-    );
-    // ui.alertFailed('Successfully test', 'Xin chao cac ban');
+    ForgotPassword({ mail: email })
+      .then(() => {
+        ui.alertForgotPasswordSuccess(
+          `Check your email`,
+          formattedEmail,
+          'Xin chao cac ban'
+        );
+      })
+      .catch((err: any) => {
+        ui.alertFailed(err.message.toString());
+      });
   };
   useEffect(() => {
     if (disableBtn) {
@@ -43,7 +46,7 @@ export default function ResetPassword() {
       <Seo templateTitle='Forgot Password' />
       <main>
         <section className='absolute h-full w-full'>
-          <div className='absolute background-image bg-gray-900 h-full top-0 w-full'></div>
+          <div className='absolute bg-gray-900 h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
               <div className='px-4 w-full lg:w-6/12'>
