@@ -147,7 +147,7 @@ export default function Header() {
                 title={
                   <>
                     <UserCircleIcon className='h-7 mr-1 text-black w-7 md:h-6 md:w-6' />
-                    <span className='text-black text-sm truncated-p'>
+                    <span className='text-black text-sm truncated-p w-[50px]'>
                       {userInfo?.identifier}
                     </span>
                   </>
@@ -192,10 +192,9 @@ export default function Header() {
                 >
                   <img
                     className='h-8 w-auto'
-                    src='/images/logo.svg'
+                    src='/images/logo-text.svg'
                     alt='Workflow'
                   />
-                  <span style={{ alignSelf: 'center' }}>Hahaha</span>
                 </span>
                 <div className='-mr-2'>
                   <Popover.Button className='bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-inset'>
@@ -275,12 +274,13 @@ export default function Header() {
                 </div>
               ) : (
                 <div>
-                  <span
+                  <Button
                     onClick={(e) => handleLogout(e)}
-                    className='bg-indigo-600 border border-transparent flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-base text-black w-full hover:bg-indigo-700'
+                    color='blue'
+                    variant='primary'
                   >
                     Logout
-                  </span>
+                  </Button>
                 </div>
               )}
             </div>

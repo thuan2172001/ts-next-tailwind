@@ -29,7 +29,6 @@ export default function LoginPage() {
     GetCredential({ identifier: username })
       .then((response: any) => {
         const userInfo = response.data;
-
         const _privateKey = SymmetricDecrypt(
           userInfo.encryptedPrivateKey,
           password
@@ -48,6 +47,7 @@ export default function LoginPage() {
           _certificate: certificate,
           identifier: username,
         };
+
         dispatch(setUserInfo(newUserInfo));
 
         Ping()
@@ -78,7 +78,7 @@ export default function LoginPage() {
                   <div className='flex-auto p-6 rounded-3xl'>
                     <div className='mb-5 text-center text-gray-500'>
                       <h3 className='font-bold leading-8 text-2xl'>
-                        Welcomeback!
+                        Welcome back!
                       </h3>
                       <p className='font-medium leading-6 text-[#999] text-base'>
                         AnygoNow makes it easy todo <br />
