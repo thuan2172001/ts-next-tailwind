@@ -68,7 +68,7 @@ export default function LoginPage() {
   };
 
   return (
-    <Layout hiddenHeader={true} hiddenFooter={true}>
+    <Layout hiddenHeader={false} hiddenFooter={true}>
       <Seo templateTitle='Login' />
       <main>
         <section className='absolute h-full w-full'>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                         rules={[
                           {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'name@email.com',
                           },
                         ]}
                         name='username'
@@ -120,7 +120,7 @@ export default function LoginPage() {
                         rules={[
                           {
                             required: true,
-                            message: 'Please input your password!',
+                            message: 'Your password',
                           },
                         ]}
                         name='password'

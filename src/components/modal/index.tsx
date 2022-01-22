@@ -106,25 +106,26 @@ export default function ModalManager() {
             centered={true}
             bodyStyle={{ padding: '0px' }}
             footer={null}
+            className='w-full md:w-[400px]'
           >
-            <div key={i.id} className='w-full md:w-[500px]'>
-              <div className='w-full md:w-[500px]'>
-                <div className='py-8'>
+            <div key={i.id} className='w-full md:w-[400px]'>
+              <div className='w-full md:w-[400px]'>
+                <div className='py-9'>
                   <img
-                    src='/images/icons/success-icon.png'
-                    className='h-12 mx-auto w-12'
+                    src='/images/icons/target.png'
+                    className='mx-auto w-[120px]'
                     alt='success'
                   />
                 </div>
-                <div className='text-black text-center'>
-                  <div className='font-extrabold text-black text-xl'>
+                <div className='m-3 text-black text-center'>
+                  <div className='font-medium text-primary text-xl'>
                     {i.title}
                   </div>
                   <div className='mt-1 text-sm'>{i.msg}</div>
                 </div>
-                <div className='flex justify-center mx-auto py-8 text-center w-1/3'>
+                <div className='flex justify-center mx-auto px-6 py-6 text-center w-full'>
                   <Button
-                    className='w-full'
+                    className='bg-primary w-full'
                     variant='primary'
                     onClick={() => {
                       closeModal(i.id);
@@ -146,29 +147,32 @@ export default function ModalManager() {
             centered={true}
             bodyStyle={{ padding: '0px' }}
             footer={null}
+            className='forgot-pwd-modal'
           >
             <div key={i.id} className='w-full md:w-[500px]'>
               <div className='w-full md:w-[500px]'>
-                <div className='py-8'>
+                <div className='py-11'>
                   <img
-                    src='/images/icons/success-icon.png'
-                    className='h-12 mx-auto w-12'
+                    src='/images/icons/letter.png'
+                    className='mx-auto w-[120px]'
                     alt='success'
                   />
                 </div>
                 <div className='text-black text-center'>
-                  <div className='font-extrabold text-black text-xl'>
-                    {i.title} {i.email}
+                  <div className='font-medium text-primary text-xl'>
+                    Please check your email
                   </div>
-                  <div className='mt-1 text-sm'>
-                    {`Confirmation link has been sent to email address ${i.email}.`}
-                    <br />
-                    {`Please check your mailbox`}
+                  <div className='font-medium mt-5 text-base'>
+                    Confirmation link has been sent to email address
+                    <br />{' '}
+                    <div className='decoration-solid underline underline-offset-1'>
+                      {i.email}.
+                    </div>
                   </div>
                 </div>
                 <div className='flex justify-center mx-auto py-8 text-center w-1/3'>
                   <Button
-                    className='w-full'
+                    className='bg-primary w-full'
                     variant='primary'
                     onClick={() => {
                       closeModal(i.id);
@@ -207,7 +211,7 @@ export default function ModalManager() {
                 </div>
                 <div className='flex justify-center mx-auto py-8 text-center w-1/3'>
                   <Button
-                    className='w-full'
+                    className='bg-primary w-full'
                     variant='primary'
                     onClick={() => {
                       closeModal(i.id);

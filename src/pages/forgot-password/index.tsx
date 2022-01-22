@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import { Form, Input } from 'antd';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import Button from '@/components/buttons/Button';
@@ -12,6 +13,7 @@ import ui from '@/utils/ui';
 
 export default function ForgotPasswordPage() {
   const [disableBtn, setDisableBtn] = useState(false);
+  const router = useRouter();
   const handleForgotPassword = (value: any) => {
     setDisableBtn(true);
     const { email } = value;
@@ -20,6 +22,7 @@ export default function ForgotPasswordPage() {
       value.email.slice(0, ind - 3),
       '*******'
     );
+
     RequestForgotPassword({ mail: email })
       .then(() => {
         ui.alertForgotPasswordSuccess(
@@ -42,25 +45,28 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <Layout hiddenHeader={true} hiddenFooter={true}>
+    <Layout hiddenHeader={false} hiddenFooter={false}>
       <Seo templateTitle='Forgot Password' />
-      <main>
+      <main className='min-h-[700px]'>
         <section className='absolute h-full w-full'>
-          <div className='absolute bg-gray-900 h-full top-0 w-full'></div>
+          <div className='absolute h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
-              <div className='px-4 w-full lg:w-6/12'>
+              <div className='w-full lg:w-[400px]'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
-                  <div className='flex-auto pt-8 px-4 py-10 lg:px-10'>
-                    <div className='mb-5 mx-auto w-8/12'>
-                      <h3 className='font-medium mb-4 text-left'>
+                  <div className='flex-auto pt-6 px-0 py-10 lg:px-6'>
+                    <div className='mb-8 mx-auto'>
+                      <h3 className='font-medium mb-6 text-center'>
                         Forgot password
                       </h3>
-                      <div className='text-left text-sm'>
-                        We will sent you a URL to reset your password.
-                        <br />
-                        Please enter your email address you have registered for
-                        our system
+                      <div className='flex text-left text-sm'>
+                        <div className='bg-orange-400 block dot h-[8px] mr-3 mt-1.5 rounded-lg w-[12px]'></div>
+                        <div className='font-medium'>
+                          We will sent you a URL to reset your password.
+                          <br />
+                          Please enter your email address you have registered
+                          for our system
+                        </div>
                       </div>
                     </div>
                     <Form
@@ -78,10 +84,12 @@ export default function ForgotPasswordPage() {
                       onFinishFailed={onFinishFailed}
                       autoComplete='off'
                       layout='vertical'
-                      className='mx-auto w-8/12'
+                      className='mx-auto'
                     >
+                      <div className='font-medium leading-4 mb-[4px] pl-5 text-sm'>
+                        Email address
+                      </div>
                       <Form.Item
-                        label='Email'
                         name='email'
                         rules={[
                           {
@@ -90,17 +98,18 @@ export default function ForgotPasswordPage() {
                           },
                         ]}
                       >
-                        <Input placeholder='Your email address' />
+                        <Input name='email' placeholder='name@email.com' />
                       </Form.Item>
                       <Form.Item
                         wrapperCol={{
                           offset: 0,
                           span: 24,
                         }}
+                        className='mb-4'
                       >
                         {disableBtn ? (
                           <Button
-                            className='mt-3 mx-auto w-full'
+                            className='bg-primary font-bold mt-2 px-8 py-3 text-base w-full'
                             variant='primary'
                             type='submit'
                             disabled={true}
@@ -109,7 +118,7 @@ export default function ForgotPasswordPage() {
                           </Button>
                         ) : (
                           <Button
-                            className='mt-3 mx-auto w-full'
+                            className='bg-primary font-bold mt-2 px-8 py-3 text-base w-full'
                             variant='primary'
                             type='submit'
                             disabled={false}
@@ -118,6 +127,15 @@ export default function ForgotPasswordPage() {
                           </Button>
                         )}
                       </Form.Item>
+                      <Button
+                        className='bg-primary-outline border-1 flex font-bold items-center justify-center leading-4 mt-4 px-8 py-3.5 rounded-xl text-base text-base text-primary w-full'
+                        variant='outline'
+                        type='button'
+                        disabled={false}
+                        onClick={() => router.push(`/signin`)}
+                      >
+                        Back to Login
+                      </Button>
                     </Form>
                   </div>
                 </div>

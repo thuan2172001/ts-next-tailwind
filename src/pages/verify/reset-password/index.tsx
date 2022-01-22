@@ -26,6 +26,7 @@ export default function ResetPasswordPage() {
     const { otp, otpId } = router.query;
     const { publicKey, encryptedPrivateKey } =
       GenerateKeyPairAndEncrypt(password);
+
     try {
       await VerifyOtp({ otp: otp as string, otpId: otpId as string });
       await ResetPassword({
@@ -36,7 +37,7 @@ export default function ResetPasswordPage() {
       });
       ui.alertResetPasswordSuccess('Password has been reset');
     } catch (err: any) {
-      ui.alertFailed(err.error.toString());
+      ui.alertFailed(err.message.toString());
     }
   };
 

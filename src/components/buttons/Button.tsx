@@ -15,6 +15,7 @@ enum ButtonColor {
   'yellow',
   'gray',
   'green',
+  'purple',
 }
 
 type ButtonProps = {
@@ -73,7 +74,7 @@ export default function Button({
               `bg-primary-400 text-white`,
               `hover:bg-primary-500 hover:text-white`,
               `active:bg-primary-600`,
-              `disabled:bg-primary-600 disabled:hover:bg-white-600`
+              `disabled:bg-indigo-400 disabled:hover:bg-white-600`
             );
             break;
           case 'gray':
@@ -124,6 +125,14 @@ export default function Button({
             overrideClassNames.push(
               `text-primary-500 border border-primary-500`,
               `hover:bg-primary-500 hover:text-white`,
+              `active:bg-primary-600`,
+              `disabled:bg-primary-600 disabled:hover:bg-primary-600`
+            );
+            break;
+          case 'purple':
+            overrideClassNames.push(
+              `text-indigo-500 border border-indigo-500`,
+              `hover:bg-indigo-700 hover:text-white`,
               `active:bg-primary-600`,
               `disabled:bg-primary-600 disabled:hover:bg-primary-600`
             );

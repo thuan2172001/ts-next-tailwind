@@ -13,6 +13,11 @@ function withOpacity(variableName) {
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   important: true,
+  mode: 'jit',
+  purge: [
+    './public/**/*.html',
+    './src/**/*.{js,jsx,ts,tsx,vue}',
+  ],
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
@@ -98,6 +103,7 @@ module.exports = {
           800: withOpacity('--tw-clr-gray-800'),
           900: withOpacity('--tw-clr-gray-900'),
         },
+        
         dark: '#222222',
       },
       keyframes: {
