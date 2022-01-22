@@ -10,7 +10,7 @@ import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-import { ResetPassword } from '@/api/user-service';
+import { ResetPassword, VerifyOtp } from '@/api/user-service';
 import { GenerateKeyPairAndEncrypt } from '@/utils/auth-cryptography';
 import ui from '@/utils/ui';
 
@@ -21,23 +21,23 @@ export default function ResetPasswordPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
 
-  const handleResetPassword = (e: any) => {
+  const handleResetPassword = async (e: any) => {
     e.preventDefault();
     const { otp, otpId } = router.query;
     const { publicKey, encryptedPrivateKey } =
       GenerateKeyPairAndEncrypt(password);
-    ResetPassword({
-      otp: otp as string,
-      otpId: otpId as string,
-      publicKey,
-      encryptedPrivateKey,
-    })
-      .then(() => {
-        ui.alertResetPasswordSuccess('Password has been reset');
-      })
-      .catch((err: any) => {
-        ui.alertFailed(err.message.toString());
+    try {
+      await VerifyOtp({ otp: otp as string, otpId: otpId as string });
+      await ResetPassword({
+        otp: otp as string,
+        otpId: otpId as string,
+        publicKey,
+        encryptedPrivateKey,
       });
+      ui.alertResetPasswordSuccess('Password has been reset');
+    } catch (err: any) {
+      ui.alertFailed(err.message.toString());
+    }
   };
 
   return (
