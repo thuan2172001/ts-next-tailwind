@@ -36,18 +36,18 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <Layout hiddenHeader={true} hiddenFooter={true}>
+    <Layout hiddenHeader={false} hiddenFooter={true}>
       <Seo templateTitle='Reset Password' />
       <main>
         <section className='absolute h-full w-full'>
           <div className='absolute h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
-              <div className='px-4 w-full lg:w-6/12'>
+              <div className='w-full lg:w-[400px]'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
-                  <div className='flex-auto pt-8 px-4 py-10 lg:px-10'>
-                    <div className='font-bold mb-5 text-center'>
-                      <h3 className='font-bold font-medium text-2xl'>
+                  <div className='flex-auto p-6 rounded-3xl'>
+                    <div className='mb-5 text-center text-gray-500'>
+                      <h3 className='font-bold leading-8 text-2xl'>
                         Setup new password
                       </h3>
                     </div>

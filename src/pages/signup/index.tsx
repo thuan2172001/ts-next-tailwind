@@ -46,7 +46,7 @@ export default function SignupPage() {
   };
 
   return (
-    <Layout hiddenHeader={true} hiddenFooter={true}>
+    <Layout hiddenHeader={false} hiddenFooter={true}>
       <Seo templateTitle='Signup' />
       <main>
         <section className='absolute h-full w-full'>
