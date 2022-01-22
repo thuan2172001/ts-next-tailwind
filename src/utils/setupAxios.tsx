@@ -85,6 +85,9 @@ export default function setupAxios(axios: AxiosStatic, store: EnhancedStore) {
   );
   axios.interceptors.response.use(
     (next) => {
+      if (!next) {
+        throw new Error('invalid_setup');
+      }
       const nextData = next.data;
       const userInfo = localStorage.getItem('userInfo');
       if (
@@ -103,8 +106,7 @@ export default function setupAxios(axios: AxiosStatic, store: EnhancedStore) {
     (error) => {
       if (!error.response) return Promise.reject(error);
       const errorCode = error.response.data;
-      console.log(errorCode);
-      return Promise.reject(error);
+      return Promise.reject(errorCode);
     }
   );
 }

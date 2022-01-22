@@ -41,8 +41,7 @@ export default function SignupPage() {
         );
       })
       .catch((err) => {
-        console.log(err);
-        ui.alertFailed(err.message.toString());
+        ui.alertFailed(err.error.toString());
       });
   };
 

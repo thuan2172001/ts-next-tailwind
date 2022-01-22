@@ -13,7 +13,7 @@ import Seo from '@/components/Seo';
 
 import { GetCredential, Ping } from '@/api/user-service';
 import { EXP } from '@/config/constant';
-import { setUserInfo } from '@/reducer/auth.slice';
+import { clearUserInfo, setUserInfo } from '@/reducer/auth.slice';
 import {
   GenerateCertificate,
   SymmetricDecrypt,
@@ -28,7 +28,8 @@ export default function LoginPage() {
     const { username, password } = e;
     GetCredential({ identifier: username })
       .then((response: any) => {
-        const userInfo = response.data;
+        const userInfo = response?.data || response;
+
         const _privateKey = SymmetricDecrypt(
           userInfo.encryptedPrivateKey,
           password
@@ -36,7 +37,7 @@ export default function LoginPage() {
 
         const message = {
           id: userInfo.id,
-          timestamp: Math.floor(new Date().getTime()),
+          timestamp: new Date().getTime(),
           exp: EXP,
         };
 
@@ -57,11 +58,12 @@ export default function LoginPage() {
             dispatch(setUserInfo(userInfo));
           })
           .catch((err: any) => {
-            ui.alertFailed(err.message.toString());
+            dispatch(clearUserInfo());
+            ui.alertFailed(err.error.toString());
           });
       })
       .catch((err: any) => {
-        ui.alertFailed(err.message.toString());
+        ui.alertFailed(err.error.toString());
       });
   };
 

@@ -54,6 +54,7 @@ export default function Header() {
     e.preventDefault();
     dispatch(clearUserInfo());
     localStorage.clear();
+    router.push('/');
   };
   const accountAction: PopUpItemsProps[] = [
     { name: 'Help Center', onClick: () => {}, icon: SupportIcon },

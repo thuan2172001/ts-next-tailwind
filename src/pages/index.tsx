@@ -84,7 +84,7 @@ export default function HomePage() {
                 Learn more
               </Button>
               <img
-                src='/images/banner/download-banner.png'
+                src='/images/banner/download-banner.webp'
                 className='mx-0 primary-box-shadow px-0 w-full'
                 alt='banner'
               />

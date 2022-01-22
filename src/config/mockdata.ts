@@ -139,7 +139,7 @@ export const products = [
     name: 'Earthen Bottle',
     href: '#',
     price: '$48',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     isShowDetail: true,
@@ -150,7 +150,7 @@ export const products = [
     name: 'Nomad Tumbler',
     href: '#',
     price: '$35',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Olive drab green insulated bottle with flared screw lid and flat top.',
     isShowDetail: true,
@@ -161,7 +161,7 @@ export const products = [
     name: 'Focus Paper Refill',
     href: '#',
     price: '$89',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Person using a pen to cross a task off a productivity paper card.',
     isShowDetail: true,
@@ -172,7 +172,7 @@ export const products = [
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
     isShowDetail: true,
@@ -183,7 +183,7 @@ export const products = [
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
     isShowDetail: true,
@@ -194,7 +194,7 @@ export const products = [
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
     isShowDetail: true,
@@ -205,7 +205,7 @@ export const products = [
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
     isShowDetail: true,
@@ -216,7 +216,7 @@ export const products = [
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc: '/images/example/1.png',
+    imageSrc: '/images/example/1.webp',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
     isShowDetail: true,

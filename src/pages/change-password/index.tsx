@@ -30,7 +30,7 @@ export default function ChangePasswordPage() {
       .then(() => {
         const message = {
           id: userInfo.id,
-          timestamp: Math.floor(new Date().getTime()),
+          timestamp: new Date().getTime(),
           exp: EXP,
         };
 
@@ -47,7 +47,7 @@ export default function ChangePasswordPage() {
         ui.alertSuccess('Change Password Successfully');
       })
       .catch((err: any) => {
-        ui.alertFailed(err.message.toString());
+        ui.alertFailed(err.error.toString());
       });
   };
 

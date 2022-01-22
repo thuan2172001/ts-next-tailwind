@@ -36,7 +36,7 @@ export default function ResetPasswordPage() {
       });
       ui.alertResetPasswordSuccess('Password has been reset');
     } catch (err: any) {
-      ui.alertFailed(err.message.toString());
+      ui.alertFailed(err.error.toString());
     }
   };
 
