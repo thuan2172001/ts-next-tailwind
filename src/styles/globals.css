@@ -257,15 +257,16 @@
   background: #5e45f3 !important;
 }
 button.bg-primary:hover {
-  background: #5e45f3 !important;
+  background: #2600ff !important;
 }
 
 .bg-primary-outline {
   border-color: #5e45f3 !important;
 }
 
-button.bg-primary-outline:hover {
-  background-color: #5e45f3 !important;
+.bg-primary-outline:hover {
+  border-color: #2600ff !important;
+  color: #2600ff !important;
 }
 
 .text-primary {

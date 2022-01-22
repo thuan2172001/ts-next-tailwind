@@ -136,6 +136,13 @@ export default function SignupPage() {
                             required: true,
                             message: 'Please input your password!',
                           },
+                          {
+                            pattern: new RegExp(
+                              '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+                            ),
+                            message:
+                              'Password must have at least 8 characters with 1 uppercase, 1 lowercase letter and 1 number',
+                          },
                         ]}
                       >
                         <Input.Password
@@ -220,7 +227,7 @@ export default function SignupPage() {
                             alt='default'
                             className='inline mr-2'
                           />
-                          <div>I already have an account</div>
+                          I already have an account
                         </a>
                       </Link>
                     </div>
