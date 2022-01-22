@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
-import { Form, Input } from 'antd';
+import { Checkbox, Form, Input } from 'antd';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
@@ -63,34 +64,36 @@ export default function LoginPage() {
       });
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    ui.alertFailed(errorInfo.toString());
-  };
-
   return (
     <Layout hiddenHeader={true} hiddenFooter={true}>
       <Seo templateTitle='Login' />
       <main>
         <section className='absolute h-full w-full'>
-          <div className='absolute bg-gray-900 h-full top-0 w-full'></div>
+          <div className='absolute h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>
-              <div className='px-4 w-full sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-6/12'>
+              <div className='w-full lg:w-[400px]'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
-                  <div className='flex-auto pt-5 py-10 xl:py-12'>
-                    <div className='font-bold mb-3 mt-2 text-center text-gray-500'>
-                      <h2>Login</h2>
-                      <small>Sign in to your account</small>
+                  <div className='flex-auto p-6 rounded-3xl'>
+                    <div className='mb-5 text-center text-gray-500'>
+                      <h3 className='font-bold leading-8 text-2xl'>
+                        Welcomeback!
+                      </h3>
+                      <p className='font-medium leading-6 text-[#999] text-base'>
+                        AnygoNow makes it easy todo <br />
+                        more for your home
+                      </p>
                     </div>
                     <Form
                       onFinish={handleSubmit}
-                      onFinishFailed={onFinishFailed}
                       autoComplete='off'
                       initialValues={{ username: '', password: '' }}
                       layout='vertical'
-                      className='mx-auto w-8/12'
+                      className='mx-auto w-full'
                     >
-                      <div>Username</div>
+                      <div className='font-medium leading-4 mb-[4px] pl-5 text-sm'>
+                        Email address
+                      </div>
                       <Form.Item
                         style={{ marginBottom: '4px' }}
                         rules={[
@@ -101,10 +104,15 @@ export default function LoginPage() {
                         ]}
                         name='username'
                       >
-                        <Input />
+                        <Input
+                          className='font-medium leading-4 px-5 py-4 rounded-xl text-sm'
+                          placeholder='name@email.com'
+                        />
                       </Form.Item>
 
-                      <div>Password</div>
+                      <div className='font-medium leading-4 mb-[4px] mt-4 pl-5 text-sm'>
+                        Password
+                      </div>
                       <Form.Item
                         rules={[
                           {
@@ -114,35 +122,58 @@ export default function LoginPage() {
                         ]}
                         name='password'
                       >
-                        <Input.Password className='py-2' />
+                        <Input.Password
+                          className='font-medium leading-4 px-5 py-4 rounded-xl signup-input-password text-sm'
+                          placeholder='Your password'
+                        />
                       </Form.Item>
+
+                      <div className='flex items-center mb-5'>
+                        <div className='inline-block w-6/12'>
+                          <UnstyledLink
+                            className='font-medium left text-[#3864FF] text-sm underline'
+                            href='/forgot-password'
+                          >
+                            Forgot your password
+                          </UnstyledLink>
+                        </div>
+
+                        <Form.Item
+                          className='inline-block m-0 text-right w-6/12'
+                          name='isAgreeTerm'
+                          valuePropName='checked'
+                          rules={[
+                            {
+                              validator: (_, value) =>
+                                value
+                                  ? Promise.resolve()
+                                  : Promise.reject(
+                                      new Error('Should accept agreement')
+                                    ),
+                            },
+                          ]}
+                        >
+                          <Checkbox className='font-medium text-sm'>
+                            Remember me
+                          </Checkbox>
+                        </Form.Item>
+                      </div>
 
                       <Form.Item>
                         <Button
-                          className='mx-auto w-full'
-                          variant='primary'
+                          className='bg-primary font-bold px-8 py-4 text-base w-full'
                           type='submit'
                         >
-                          Sign in
+                          Login
                         </Button>
                       </Form.Item>
                     </Form>
-
-                    <div className='mx-auto w-8/12'>
-                      <UnstyledLink
-                        className='text-xs hover:text-sky-600'
-                        href='/forgot-password'
-                      >
-                        Forgot your password?
-                      </UnstyledLink>
-                    </div>
-                    <div className='mx-auto w-8/12'>
-                      <UnstyledLink
-                        className='text-xs hover:text-sky-600'
-                        href='/signup'
-                      >
-                        Dont have account ? Register now !
-                      </UnstyledLink>
+                    <div>
+                      <Link href='/signup'>
+                        <a className='bg-primary-outline border-2 flex font-bold items-center justify-center leading-4 mt-4 px-8 py-4 rounded-xl text-base text-base text-primary w-full'>
+                          <div>Create new account</div>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

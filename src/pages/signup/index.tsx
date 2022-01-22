@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import { Checkbox, Form, Input } from 'antd';
+import Link from 'next/link';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
@@ -45,13 +46,9 @@ export default function SignupPage() {
       });
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    ui.alertFailed(errorInfo.toString());
-  };
-
   return (
     <Layout hiddenHeader={true} hiddenFooter={true}>
-      <Seo templateTitle='Reset Password' />
+      <Seo templateTitle='Signup' />
       <main>
         <section className='absolute h-full w-full'>
           <div className='absolute h-full top-0 w-full'></div>
@@ -59,7 +56,7 @@ export default function SignupPage() {
             <div className='content-center flex h-full items-center justify-center'>
               <div className='w-full lg:w-[400px]'>
                 <div className='bg-white border-0 break-words flex flex-col mb-6 min-w-0 relative rounded-lg shadow-lg w-full'>
-                  <div className='flex-auto p-6'>
+                  <div className='flex-auto p-6 rounded-3xl'>
                     <div className='mb-5 text-center text-gray-500'>
                       <h3 className='font-bold leading-8 text-2xl'>{`Let's get started`}</h3>
                       <p className='font-medium leading-6 text-[#999] text-base'>
@@ -70,7 +67,6 @@ export default function SignupPage() {
 
                     <Form
                       onFinish={handleSignup}
-                      onFinishFailed={onFinishFailed}
                       autoComplete='off'
                       initialValues={{
                         email: '',
@@ -216,20 +212,19 @@ export default function SignupPage() {
                           Next
                         </Button>
                       </Form.Item>
-                      <Form.Item>
-                        <Button
-                          className='bg-primary-outline font-bold leading-4 px-8 py-4 text-base text-base text-primary w-full'
-                          variant='outline'
-                        >
+                    </Form>
+                    <div>
+                      <Link href='/signin'>
+                        <a className='bg-primary-outline border-2 flex font-bold items-center justify-center leading-4 mt-4 px-8 py-4 rounded-xl text-base text-base text-primary w-full'>
                           <img
                             src='/images/icons/left-circle-arrow.png'
                             alt='default'
                             className='inline mr-2'
                           />
-                          I already have an account
-                        </Button>
-                      </Form.Item>
-                    </Form>
+                          <div>I already have an account</div>
+                        </a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
