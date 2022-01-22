@@ -26,19 +26,19 @@ export const ChangePassword = (data: {
   return axios.post(API_BASE_URL + '/auth/password', { data });
 };
 
-export const ResetChangePassword = (data: {
+export const ResetPassword = (data: {
   otp: string;
   otpId: string;
   publicKey: string;
   encryptedPrivateKey: string;
 }) => {
-  return axios.post(API_BASE_URL + '/reset-password', { data });
+  return axios.post(API_BASE_URL + '/auth/forgot/reset', { data });
 };
 
 export const VerifyOtp = (data: { otp: string; otpId: string }) => {
   return axios.post(API_BASE_URL + '/auth/otp', { data });
 };
 
-export const ForgotPassword = (data: { mail: string }) => {
-  return axios.post(API_BASE_URL + '/auth/forgot-password', { data });
+export const RequestForgotPassword = (data: { mail: string }) => {
+  return axios.post(API_BASE_URL + '/auth/forgot', { data });
 };

@@ -7,7 +7,7 @@ import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-import { ForgotPassword } from '@/api/user-service';
+import { RequestForgotPassword } from '@/api/user-service';
 import ui from '@/utils/ui';
 
 export default function ForgotPasswordPage() {
@@ -20,7 +20,7 @@ export default function ForgotPasswordPage() {
       value.email.slice(0, ind - 3),
       '*******'
     );
-    ForgotPassword({ mail: email })
+    RequestForgotPassword({ mail: email })
       .then(() => {
         ui.alertForgotPasswordSuccess(
           `Check your email`,
