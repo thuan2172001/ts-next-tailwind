@@ -34,6 +34,7 @@ export default function LoginPage() {
           userInfo.encryptedPrivateKey,
           password
         );
+
         const message = {
           id: userInfo.id,
           timestamp: Math.floor(new Date().getTime()),
@@ -140,18 +141,9 @@ export default function LoginPage() {
 
                         <Form.Item
                           className='inline-block m-0 text-right w-6/12'
-                          name='isAgreeTerm'
+                          name='isRemember'
                           valuePropName='checked'
-                          rules={[
-                            {
-                              validator: (_, value) =>
-                                value
-                                  ? Promise.resolve()
-                                  : Promise.reject(
-                                      new Error('Should accept agreement')
-                                    ),
-                            },
-                          ]}
+                          rules={[]}
                         >
                           <Checkbox className='font-medium text-sm'>
                             Remember me

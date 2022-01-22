@@ -1,13 +1,16 @@
 import { Form, Input } from 'antd';
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import TextDisplay from '@/components/TextDisplay';
 
 import { ChangePassword } from '@/api/user-service';
+import { EXP } from '@/config/constant';
+import { setUserInfo } from '@/reducer/auth.slice';
 import {
+  GenerateCertificate,
   GenerateKeyPairAndEncrypt,
   SymmetricDecrypt,
 } from '@/utils/auth-cryptography';
@@ -15,21 +18,36 @@ import ui from '@/utils/ui';
 
 export default function ChangePasswordPage() {
   const userInfo = useSelector((state: any) => state.auth);
-  console.log(userInfo);
+  const dispatch = useDispatch();
   const handleSubmit = (e: any) => {
-    console.log(e);
-    const { publicKey, encryptedPrivateKey } = GenerateKeyPairAndEncrypt(
-      e.newPass
-    );
+    const { newPass } = e;
+    const { publicKey, encryptedPrivateKey, privateKey } =
+      GenerateKeyPairAndEncrypt(newPass);
     ChangePassword({
       publicKey: publicKey,
       encryptedPrivateKey: encryptedPrivateKey,
     })
       .then(() => {
+        const message = {
+          id: userInfo.id,
+          timestamp: Math.floor(new Date().getTime()),
+          exp: EXP,
+        };
+
+        const certificate: any = GenerateCertificate(message, privateKey);
+
+        const newUserInfo = {
+          ...userInfo,
+          _privateKey: privateKey,
+          _certificate: certificate,
+        };
+
+        dispatch(setUserInfo(newUserInfo));
+
         ui.alertSuccess('Change Password Successfully');
       })
-      .catch(() => {
-        ui.alertFailed('Change Password Failed');
+      .catch((err: any) => {
+        ui.alertFailed(err.message.toString());
       });
   };
 
