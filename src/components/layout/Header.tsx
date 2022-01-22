@@ -7,6 +7,7 @@ import {
   BellIcon,
   LogoutIcon,
   MenuIcon,
+  PencilIcon,
   ShieldCheckIcon,
   ShoppingCartIcon,
   SupportIcon,
@@ -44,6 +45,12 @@ const account: PopUpItemsProps[] = [
     href: '#',
     icon: ShieldCheckIcon,
   },
+  {
+    name: 'Change Password',
+    description: 'Change your current password',
+    href: 'change-password',
+    icon: PencilIcon,
+  },
 ];
 
 export default function Header() {
@@ -63,7 +70,7 @@ export default function Header() {
   return (
     <Popover className='main-header relative top-0'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
-        <div className='border-gray-100 flex items-center justify-between justify-between py-1 md:space-x-10'>
+        <div className='border-gray-100 flex items-center justify-between py-1 md:space-x-10'>
           <div className='col-span-2 flex lg:col-span-1'>
             <span
               className='cursor-pointer flex'
@@ -116,7 +123,7 @@ export default function Header() {
               <div className='mr-10 relative text-gray-600 md:col-span-4 lg:col-span-6'>
                 <input
                   style={{ width: '100%' }}
-                  className='bg-white border-2 border-gray-300 h-8 rounded-md text-sm md:pr-10 md:pr-4 lg:pr-12 focus:outline-none'
+                  className='bg-white border-2 border-gray-300 h-8 rounded-md text-sm md:pr-10 lg:pr-12 focus:outline-none'
                   type='search'
                   name='search'
                   placeholder='Tìm kiếm'

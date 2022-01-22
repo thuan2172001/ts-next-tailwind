@@ -164,7 +164,7 @@ export default function LoginPage() {
                     </Form>
                     <div>
                       <Link href='/signup'>
-                        <a className='bg-primary-outline border-2 flex font-bold items-center justify-center leading-4 mt-4 px-8 py-4 rounded-xl text-base text-base text-primary w-full'>
+                        <a className='bg-primary-outline border-2 flex font-bold items-center justify-center leading-4 mt-4 px-8 py-4 rounded-xl text-base text-primary w-full'>
                           <div>Create new account</div>
                         </a>
                       </Link>
