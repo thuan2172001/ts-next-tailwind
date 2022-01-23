@@ -36,7 +36,7 @@ const account: PopUpItemsProps[] = [
   {
     name: 'Account management',
     description: 'Edit your information.',
-    href: '#',
+    href: 'account-info',
     icon: UserCircleIcon,
   },
   {
