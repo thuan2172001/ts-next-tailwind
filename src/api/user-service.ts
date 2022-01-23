@@ -42,3 +42,7 @@ export const VerifyOtp = (data: { otp: string; otpId: string }) => {
 export const RequestForgotPassword = (data: { mail: string }) => {
   return axios.post(API_BASE_URL + '/auth/forgot', { data });
 };
+
+export const GetListStates = () => {
+  return axios.get(API_BASE_URL + '/contacts/states');
+};
