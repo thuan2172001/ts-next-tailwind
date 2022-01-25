@@ -5,6 +5,7 @@
 import { Popover, Transition } from '@headlessui/react';
 import {
   BellIcon,
+  InformationCircleIcon,
   LogoutIcon,
   MenuIcon,
   PencilIcon,
@@ -36,7 +37,7 @@ const account: PopUpItemsProps[] = [
   {
     name: 'Account management',
     description: 'Edit your information.',
-    href: 'account-info',
+    href: 'edit-profile',
     icon: UserCircleIcon,
   },
   {
@@ -50,6 +51,11 @@ const account: PopUpItemsProps[] = [
     description: 'Change your current password',
     href: 'change-password',
     icon: PencilIcon,
+  },
+  {
+    name: 'View account infomation',
+    href: 'account-info',
+    icon: InformationCircleIcon,
   },
 ];
 
