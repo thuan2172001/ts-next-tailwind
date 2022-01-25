@@ -46,3 +46,35 @@ export const RequestForgotPassword = (data: { mail: string }) => {
 export const GetListStates = () => {
   return axios.get(API_BASE_URL + '/contacts/states');
 };
+
+export const GetCurrentInfoContact = (id: string, userId?: string) => {
+  return axios.get(API_BASE_URL + `/contacts/${id}?UserId=${userId}`);
+};
+
+export const GetUserInfo = (id: string) => {
+  return axios.get(API_BASE_URL + `/users/${id}`);
+};
+
+export const PutNewInfoContact = (
+  id: string,
+  data: {
+    zipcode: number;
+    address1: string;
+    address2?: string;
+    stateId: string;
+    city: string;
+  }
+) => {
+  return axios.put(API_BASE_URL + `/contacts/${id}`, { data });
+};
+
+export const PutNewInfoUser = (
+  id: string,
+  data: {
+    avatarUrl: string;
+    firstName: string;
+    lastName: string;
+  }
+) => {
+  return axios.put(API_BASE_URL + `/users/${id}`, { data });
+};

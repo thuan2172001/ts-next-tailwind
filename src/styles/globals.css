@@ -338,3 +338,10 @@ button.bg-primary:hover {
 .forgot-pwd-modal .ant-modal-content {
   border-radius: 1.5rem;
 }
+.ant-input-affix-wrapper-disabled {
+  background-color: unset;
+  color: black;
+}
+.ant-input[disabled] {
+  color: black;
+}

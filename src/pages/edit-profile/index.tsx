@@ -1,6 +1,4 @@
-import { Col, Form, Input, Row } from 'antd';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Col, Form, Input, Row, Select, Upload } from 'antd';
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -8,12 +6,21 @@ import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import TextDisplay from '@/components/TextDisplay';
 
-import { GetCurrentInfoContact, GetUserInfo } from '@/api/user-service';
+import {
+  GetCurrentInfoContact,
+  GetListStates,
+  GetUserInfo,
+  PutNewInfoContact,
+  PutNewInfoUser,
+} from '@/api/user-service';
 import ui from '@/utils/ui';
 
 export default function AccountInfoPage() {
   const userInfo = useSelector((state: any) => state.auth);
   const { id }: { id: string } = userInfo;
+  const [states, setStates] = React.useState<[{ id: string; name: string }]>([
+    { id: 'demo', name: 'demo' },
+  ]);
   const [form] = Form.useForm();
   const [initInfo, setInitInfo] = React.useState({
     avatarUrl: '',
@@ -27,7 +34,15 @@ export default function AccountInfoPage() {
     city: '',
     zipcode: 0,
   });
-
+  const getListStates = () => {
+    GetListStates()
+      .then((response) => {
+        const { data } = response;
+        const { states } = data;
+        setStates(states);
+      })
+      .catch((error: any) => ui.alertFailed(error.message.toString()));
+  };
   const getCrrInfoContact = () => {
     GetCurrentInfoContact(id)
       .then((response) => {
@@ -53,8 +68,32 @@ export default function AccountInfoPage() {
       setInitInfo({ ...initInfo, avatarUrl, mail, phone, firstName, lastName });
     });
   };
-
+  const handleSubmit = (e: any) => {
+    const { zipcode, address1, address2, city } = e;
+    const { avatarUrl, firstName, lastName } = e;
+    const stateName = form.getFieldValue('state');
+    let stateId = '';
+    states.filter((state) => {
+      if (state.name == stateName) {
+        stateId = state.id;
+        console.log(stateId);
+        return;
+      }
+    });
+    console.log({ zipcode, address1, address2, city });
+    PutNewInfoContact(id, { zipcode, address1, address2, stateId, city })
+      .then(() => {
+        ui.alertSuccess('Update contact success!');
+      })
+      .catch((error: any) => ui.alertFailed(error.toString()));
+    PutNewInfoUser(id, { avatarUrl, firstName, lastName })
+      .then(() => {
+        ui.alertSuccess('Update user profile success!');
+      })
+      .catch((error: any) => ui.alertFailed(error.toString()));
+  };
   React.useEffect(() => {
+    getListStates();
     getCrrInfoContact();
     getCrrUsersInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -78,31 +117,50 @@ export default function AccountInfoPage() {
               />
             </div>
           </div>
-          <Form className='mx-auto w-4/5' form={form} autoComplete='off'>
-            <Image
-              src={initInfo.avatarUrl ? initInfo.avatarUrl : '/images/logo.svg'}
-              width={100}
-              height={100}
-              alt='avatar'
-              className='h-20 py-3 rounded-full shadow-md w-20'
-            />
+          <Form
+            onFinish={handleSubmit}
+            className='mx-auto w-4/5'
+            form={form}
+            autoComplete='off'
+          >
+            <Upload name='avatarUrl' action='/upload.do' listType='picture'>
+              <button className="bg-[url('/images/logo.svg')] bg-center bg-no-repeat h-20 py-3 rounded-full shadow-md w-20 hover:shadow-blue-500" />
+            </Upload>
+
             <div className='items-center mt-4'>
               <Row justify='space-between'>
                 <Col span={11}>
-                  <Form.Item name='firstName'>
+                  <Form.Item
+                    name='firstName'
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your first name!',
+                      },
+                    ]}
+                  >
                     <Input
                       className='border-2'
                       prefix={<label>First Name</label>}
-                      disabled={true}
+                      type='text'
                     />
                   </Form.Item>
                 </Col>
                 <Col span={11}>
-                  <Form.Item name='lastName' className=''>
+                  <Form.Item
+                    name='lastName'
+                    className=''
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your last name!',
+                      },
+                    ]}
+                  >
                     <Input
                       className='border-2'
                       prefix={<label>Last Name</label>}
-                      disabled={true}
+                      type='text'
                     />
                   </Form.Item>
                 </Col>
@@ -115,17 +173,24 @@ export default function AccountInfoPage() {
               <Input
                 className='disabled disabled:text-primary-200'
                 prefix={<label>Your phone number</label>}
-                value=''
                 disabled={true}
               />
             </Form.Item>
             <label className='mb-3 text-2xl'>Contact infomation</label>
             <div className='mt-5'>
-              <Form.Item name='address1'>
+              <Form.Item
+                name='address1'
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your address!',
+                  },
+                ]}
+              >
                 <Input
                   prefix={<label>Address 1</label>}
                   value={initInfo.address1}
-                  disabled={true}
+                  type='text'
                 />
               </Form.Item>
               <Form.Item name='address2'>
@@ -133,17 +198,40 @@ export default function AccountInfoPage() {
                   type='text'
                   prefix={<label>Address 2 (Optinal)</label>}
                   value={initInfo.address2}
-                  disabled={true}
                 />
               </Form.Item>
-              <Form.Item name='state'>
-                <Input prefix={<label>State</label>} disabled={true} />
+              <Form.Item
+                name='state'
+                rules={[
+                  { required: true, message: 'Please select your state!' },
+                ]}
+              >
+                <Select placeholder='State'>
+                  {states.map((state) => (
+                    <Select.Option key={state.id} value={state.name}>
+                      {state.name}
+                    </Select.Option>
+                  ))}
+                </Select>
               </Form.Item>
-              <Form.Item name='city'>
-                <Input prefix={<label>City</label>} disabled={true} />
+              <Form.Item
+                name='city'
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your city!',
+                  },
+                ]}
+              >
+                <Input prefix={<label>City</label>} type='text' />
               </Form.Item>
-              <Form.Item name='zipcode'>
-                <Input prefix={<label>Zipcode</label>} disabled={true} />
+              <Form.Item
+                name='zipcode'
+                rules={[
+                  { required: true, message: 'Please input your zipcode!' },
+                ]}
+              >
+                <Input type='number' prefix={<label>Zipcode</label>} />
               </Form.Item>
             </div>
             <div className='align-right h-16 relative'>
@@ -152,7 +240,7 @@ export default function AccountInfoPage() {
                 variant='primary'
                 className='absolute mb-3 right-0 text-xs w-1/4'
               >
-                <Link href='/'>Return homepage</Link>
+                Update profile
               </Button>
             </div>
           </Form>
