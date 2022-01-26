@@ -19,7 +19,7 @@ export default function ActiveAccountPage() {
           ui.alertSuccess('Verify account successful !');
         })
         .catch((err: any) => {
-          ui.alertFailed(err.error.toString());
+          ui.alertFailed(err?.error?.toString());
         });
     }
   }, [router.isReady, router.query]);

@@ -47,7 +47,7 @@ export default function ChangePasswordPage() {
         ui.alertSuccess('Change Password Successfully');
       })
       .catch((err: any) => {
-        ui.alertFailed(err.error.toString());
+        ui.alertFailed(err?.error?.toString());
       });
   };
 

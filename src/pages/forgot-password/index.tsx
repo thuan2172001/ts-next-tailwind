@@ -32,7 +32,7 @@ export default function ForgotPasswordPage() {
         );
       })
       .catch((err: any) => {
-        ui.alertFailed(err.error.toString());
+        ui.alertFailed(err?.error?.toString());
       });
   };
   useEffect(() => {

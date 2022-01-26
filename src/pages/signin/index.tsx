@@ -59,11 +59,11 @@ export default function LoginPage() {
           })
           .catch((err: any) => {
             dispatch(clearUserInfo());
-            ui.alertFailed(err.error.toString());
+            ui.alertFailed(err?.error?.toString());
           });
       })
       .catch((err: any) => {
-        ui.alertFailed(err.error.toString());
+        ui.alertFailed(err?.error?.toString());
       });
   };
 
