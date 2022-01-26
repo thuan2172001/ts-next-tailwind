@@ -24,6 +24,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@types/react-bootstrap-table-next": "^4.0.17",
     "@types/react-bootstrap-table2-paginator": "^2.1.2",
+    "@types/react-slick": "^0.23.8",
     "antd": "^4.16.6",
     "axios": "^0.24.0",
     "clsx": "^1.1.1",
@@ -42,8 +43,10 @@
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",
     "react-responsive-carousel": "^3.2.22",
+    "react-slick": "^0.28.1",
     "redux-persist": "^6.0.0",
-    "secp256k1": "^4.0.2"
+    "secp256k1": "^4.0.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",

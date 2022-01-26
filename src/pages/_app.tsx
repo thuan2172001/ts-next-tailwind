@@ -8,6 +8,8 @@ import persistStore from 'redux-persist/lib/persistStore';
 import 'antd/dist/antd.css';
 import '@/styles/globals.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import ModalManager from '@/components/modal';
 

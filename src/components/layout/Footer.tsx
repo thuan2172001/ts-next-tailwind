@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div>
       <footer className='bg-gray-100 text-center text-gray-600 lg:text-left'>
-        <div className='border-b border-gray-300 flex items-center justify-center p-6 lg:justify-between'>
+        <div className='border-b border-gray-300 flex items-center justify-center p-6 px-12 lg:justify-between'>
           <div className='hidden mr-12 lg:block'>
             <span>Get connected with us on social networks:</span>
           </div>
@@ -114,9 +114,9 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className='mx-6 py-10 text-center md:text-left'>
-          <div className='gap-8 grid grid-1 md:grid-cols-2 lg:grid-cols-4'>
-            <div className=''>
+        <div className='mx-6 px-4 py-10 text-center md:text-left'>
+          <div className='gap-8 grid grid-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5'>
+            <div className='xl:col-span-2'>
               <h6 className='flex font-semibold items-center justify-center mb-4 uppercase md:justify-start'>
                 <img className='' src='/images/logo-text.svg' alt='' />
               </h6>
@@ -127,51 +127,31 @@ export default function Footer() {
             </div>
             <div className=''>
               <h6 className='flex font-semibold justify-center mb-4 uppercase md:justify-start'>
-                Products
+                About
               </h6>
               <p className='mb-4'>
                 <a href='#!' className='text-gray-600'>
-                  Angular
+                  Terms of Use
                 </a>
               </p>
               <p className='mb-4'>
                 <a href='#!' className='text-gray-600'>
-                  React
-                </a>
-              </p>
-              <p className='mb-4'>
-                <a href='#!' className='text-gray-600'>
-                  Vue
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-gray-600'>
-                  Laravel
+                  Privacy Policy
                 </a>
               </p>
             </div>
             <div className=''>
               <h6 className='flex font-semibold justify-center mb-4 uppercase md:justify-start'>
-                Useful links
+                Homeowner services
               </h6>
               <p className='mb-4'>
                 <a href='#!' className='text-gray-600'>
-                  Pricing
+                  Most interested
                 </a>
               </p>
               <p className='mb-4'>
                 <a href='#!' className='text-gray-600'>
-                  Settings
-                </a>
-              </p>
-              <p className='mb-4'>
-                <a href='#!' className='text-gray-600'>
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-gray-600'>
-                  Help
+                  Professionals near you
                 </a>
               </p>
             </div>

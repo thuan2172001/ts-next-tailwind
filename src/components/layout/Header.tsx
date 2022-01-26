@@ -5,6 +5,7 @@
 import { Popover, Transition } from '@headlessui/react';
 import {
   BellIcon,
+  ChatIcon,
   InformationCircleIcon,
   LogoutIcon,
   MenuIcon,
@@ -75,7 +76,7 @@ export default function Header() {
   ];
   return (
     <Popover className='main-header relative top-0'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6'>
+      <div className='max-w-7xl mx-auto px-4 py-3 sm:px-6'>
         <div className='border-gray-100 flex items-center justify-between py-1 md:space-x-10'>
           <div className='col-span-2 flex lg:col-span-1'>
             <span
@@ -125,37 +126,29 @@ export default function Header() {
               </div>
             </div>
           ) : (
-            <div className='col-span-6 hidden items-center justify-end md:grid md:grid-cols-8 lg:col-span-7'>
-              <div className='mr-10 relative text-gray-600 md:col-span-4 lg:col-span-6'>
-                <input
-                  style={{ width: '100%' }}
-                  className='bg-white border-2 border-gray-300 h-8 rounded-md text-sm md:pr-10 lg:pr-12 focus:outline-none'
-                  type='search'
-                  name='search'
-                  placeholder='Tìm kiếm'
-                />
-                <button
-                  type='submit'
-                  className='absolute mr-4 mt-2 right-0 top-0'
-                >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-4 w-4'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-                    />
-                  </svg>
-                </button>
-              </div>
+            <div className='col-span-6 hidden items-center justify-end md:flex'>
+              <span
+                className='cursor-pointer flex mx-2 text-black md:col-span-2 lg:col-span-1'
+                onClick={() => {
+                  ui.alertDanger('Successfully test', 'Xin chao cac ban');
+                  ui.alertSuccess('Successfully test', 'Xin chao cac ban');
+                  ui.alertFailed('Successfully test', 'Xin chao cac ban');
+                }}
+              >
+                <ChatIcon className='h-7 mt-1 w-7 md:h-6 md:w-6' />
+              </span>
+              <span
+                className='cursor-pointer flex mx-2 text-black md:col-span-2 lg:col-span-1'
+                onClick={() => {
+                  ui.alertDanger('Successfully test', 'Xin chao cac ban');
+                  ui.alertSuccess('Successfully test', 'Xin chao cac ban');
+                  ui.alertFailed('Successfully test', 'Xin chao cac ban');
+                }}
+              >
+                <BellIcon className='h-7 mr-2 mt-1 w-7 md:h-6 md:w-6' />
+              </span>
               <PopOverButton
-                className='float-right mt-3 text-black md:col-span-2 lg:col-span-1'
+                className='mt-3 text-black md:col-span-2'
                 size='sm'
                 items={account}
                 title={
@@ -168,17 +161,6 @@ export default function Header() {
                 }
                 callsToAction={accountAction}
               />
-              <span
-                className='cursor-pointer flex ml-3 text-black md:col-span-2 lg:col-span-1'
-                onClick={() => {
-                  ui.alertDanger('Successfully test', 'Xin chao cac ban');
-                  ui.alertSuccess('Successfully test', 'Xin chao cac ban');
-                  ui.alertFailed('Successfully test', 'Xin chao cac ban');
-                }}
-              >
-                <ShoppingCartIcon className='h-7 ml-2 mt-1 w-7 md:h-6 md:w-6' />
-                <span className='ml- mt-2 text-sm'>Giỏ hàng</span>
-              </span>
             </div>
           )}
         </div>

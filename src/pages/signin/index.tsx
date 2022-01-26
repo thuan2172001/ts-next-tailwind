@@ -71,7 +71,7 @@ export default function LoginPage() {
     <Layout hiddenHeader={false} hiddenFooter={true}>
       <Seo templateTitle='Login' />
       <main>
-        <section className='absolute h-full w-full'>
+        <section className='absolute fixed h-full modal top-0 w-full'>
           <div className='absolute h-full top-0 w-full'></div>
           <div className='container h-full mx-auto px-4'>
             <div className='content-center flex h-full items-center justify-center'>

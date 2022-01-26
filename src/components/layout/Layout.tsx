@@ -14,8 +14,11 @@ export default function Layout({
 }) {
   return (
     <>
-      {!hiddenHeader && <Header />}
-      {/* <div style={{ marginTop: `${hiddenHeader ? '0' : '0'}` }}></div> */}
+      {!hiddenHeader && (
+        <>
+          <Header />
+        </>
+      )}
       {children}
       {!hiddenFooter && <Footer />}
     </>
